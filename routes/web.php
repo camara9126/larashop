@@ -13,8 +13,12 @@ Route::get('/detail', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/test', function () {
+    return view('dashboard.index');
+})->middleware(['auth', 'verified'])->name('test');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -22,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// CRUD pour les Annonces
 Route::resource('/article', ArticleController::class)->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
