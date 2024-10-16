@@ -18,15 +18,15 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
         <!-- Libraries Stylesheet -->
-        <link href="{{('assets/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
-        <link href="{{('assets/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+        <link href="{{('assetsH/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+        <link href="{{('assetsH/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
 
         <!-- Customized Bootstrap Stylesheet -->
-        <link href="{{('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{('assetsH/css/bootstrap.min.css')}}" rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        <link href="{{('assets/css/style.css')}}" rel="stylesheet">
+        <link href="{{('assetsH/css/style.css')}}" rel="stylesheet">
     </head>
 
     <body>
@@ -61,7 +61,7 @@
                             <div class="col-lg-6">
                                 <div class="border rounded">
                                     <a href="#">
-                                        <img src="{{('assets/img/single-item.jpg')}}" class="img-fluid rounded" alt="Image">
+                                        <img src="{{asset('assetsH/img/single-item.jpg')}}" class="img-fluid rounded" alt="Image">
                                     </a>
                                 </div>
                             </div>
@@ -186,16 +186,16 @@
     <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
         
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{('assets/lib/easing/easing.min.js')}}"></script>
-    <script src="{{('assets/lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{('assets/lib/lightbox/js/lightbox.min.js')}}"></script>
-    <script src="{{('assets/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{('assetsH/lib/easing/easing.min.js')}}"></script>
+<script src="{{('assetsH/lib/waypoints/waypoints.min.js')}}"></script>
+<script src="{{('assetsH/lib/lightbox/js/lightbox.min.js')}}"></script>
+<script src="{{('assetsH/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
-    <!-- Template Javascript -->
-    <script src="{{('assets/js/main.js')}}"></script>
-    </body>
+<!-- Template Javascript -->
+<script src="{{('assetsH/js/main.js')}}"></script>
+</body>
 
 </html>

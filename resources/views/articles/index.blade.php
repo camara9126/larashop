@@ -37,33 +37,45 @@
                                             <th scope="col">Image</th>
                                             <th scope="col">Titre</th>
                                             <th scope="col">Categorie</th>
+                                            <th scope="col">Stock</th>
                                             <th scope="col">Date Creation</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
+                                    @if($articles->count() > 0)
+                                    @foreach($articles as $art)
                                         <tr>
                                             <th scope="row"></th>
                                             <td>
-                                                <img src="image" width="150" alt="">
+                                                <img src="{{asset($art->image)}}" alt=" ">
                                             </td>
-                                            <td>title</td>
+                                            <td>{{$art->title}}</td>
                                             <td>
-
+                                                @foreach($categories as $cat)
+                                                @if($cat->id == $art->id)
+                                                    {{$cat->name}}
+                                                @endif
+                                                @endforeach
                                             </td>
-                                            <td>created_at</td>
+                                            <td>{{$art->stock}}</td>
+                                            <td>{{$art->created_at}}</td>
                                             <td>
-                                                <a href="" class="btn btn-outline-info "><i class="fa fa-eye" aria-hidden="true"></i></a><br>
-                                                <a href="" class="btn btn-outline-warning btn-sm"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                <form action="" type="button" method="post" onsubmit="return confirm('Supprimer ?')">
+                                                <a href="{{route('article.show', $art->id)}}" class="btn btn-outline-info"><i class="fa fa-eye" aria-hidden="true"></i></a><br>
+                                                <a href="{{route('article.edit', $art->id)}}" class="btn btn-outline-warning"><i class="fa fa-check" aria-hidden="true"></i></a><br>
+                                                <form action="{{ route('article.destroy', $art->id) }}" type="button" method="post" onsubmit="return confirm('Supprimer ?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                    <button type="submit" class="btn btn-outline-danger">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </button>
                                                 </form>
+                                                <!-- <a href="{{route('article.destroy', $art->id)}}" class="btn btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a> -->
+                                               
                                             </td>
                                         </tr>
-                                        
+                                    @endforeach
+                                    @endif    
                                     </tbody>
                                 </table>
                             </div>

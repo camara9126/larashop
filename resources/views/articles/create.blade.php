@@ -34,10 +34,10 @@
                                 </div>
 
                                 <div class="col-md-4 form-group">
-                                    <input type="file" name="image2" id="image" class="form-control">
+                                    <input type="file" name="image2" id="image2" class="form-control">
                                 </div>
                                 <div class="col-md-4 form-group">
-                                    <input type="file" name="image3" id="image" class="form-control">
+                                    <input type="file" name="image3" id="image3" class="form-control">
                                 </div>
                             </div>
                         </div>

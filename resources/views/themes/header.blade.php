@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SunuCode</title>
+    <title>LaraShop</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('assetsD/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('assetsD/vendors/flag-icon-css/css/flag-icon.min.css')}}">
@@ -29,7 +29,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('assetsD/css/style.css')}}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{asset('assetsD/images/favicon.png')}}"/>
+    <!-- <link rel="shortcut icon" href="{{asset('assetsD/images/favicon.png')}}"/> -->
 </head>
 <body>
     

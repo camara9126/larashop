@@ -83,8 +83,15 @@
         </li> -->
         <li class="nav-item sidebar-user-actions">
             <div class="sidebar-user-menu">
-                <a href="{{route('logout')}}" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
-                    <span class="menu-title">Deconnexion</span></a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                     <a href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Deconnexion') }}
+                    </a>
+                </form>
             </div>
         </li>
     </ul>

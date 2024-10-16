@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class articles extends Model
 {
@@ -27,6 +28,27 @@ class articles extends Model
         {
             return $this->belongsTo(categories::class);
         }
+
+        protected static function boot()
+            {
+                parent::boot();
+            
+                static::saving(function ($article) {
+                    if (empty($article->slug)) {
+                        $slug = Str::slug($article->title);
+                        $originalSlug = $slug;
+            
+                        // Vérifier l'unicité du slug
+                        $count = 1;
+                        while (Articles::where('slug', $slug)->exists()) {
+                            $slug = $originalSlug . '-' . $count;
+                            $count++;
+                        }
+            
+                        $article->slug = $slug;
+                    }
+                });
+            }
 }
 
 
