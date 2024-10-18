@@ -48,7 +48,7 @@
                                         <tr>
                                             <th scope="row"></th>
                                             <td>
-                                                <img src="{{asset($art->image)}}" alt=" ">
+                                                <img src="{{asset('storage/'.$art->image)}}" alt="{{$art->title}}">
                                             </td>
                                             <td>{{$art->title}}</td>
                                             <td>

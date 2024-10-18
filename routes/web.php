@@ -1,8 +1,10 @@
 <?php
 
+use PhpParser\Modifiers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home.index');
@@ -33,5 +35,23 @@ Route::resource('/article', ArticleController::class)->middleware(['auth', 'veri
 Route::get('/article/{articles}',[ArticleController::class, 'show'])->name('article.show');
 Route::get('/article/{articles}',[ArticleController::class, 'destroy'])->name('article.destroy');
 Route::get('/article/{articles}/edit',[ArticleController::class, 'edit'])->name('article.edit');
+Route::post('/article/{articles}',[ArticleController::class, 'update'])->name('article.update');
+
+// Modifier le mot de passe 
+Route::get('/password', function () {
+    return view('profile.partials.update-password-form');
+})->middleware(['auth', 'verified'])->name('password');
+
+// supprimé user 
+Route::get('/supprimer', function () {
+    return view('profile.partials.delete-user-form');
+    })->middleware(['auth', 'verified'])->name('supprimer');
+
+// editer user
+Route::get('/editer', function () {
+    $user= Auth::user();
+    return view('profile.partials.update-profile-information-form', compact('user'));
+    })->middleware(['auth', 'verified'])->name('editer');
+    
 
 require __DIR__.'/auth.php';

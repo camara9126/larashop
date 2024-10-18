@@ -11,7 +11,7 @@
                 <span class="mdi mdi-menu"></span>
             </button>
             <div class="search-field d-none d-xl-block">
-                <h3 class="d-flex align-items-center mt-3"> <?=ucwords("espace administrateur") ?></h3>
+                <h3 class="d-flex align-items-center mt-3">Bienvenue !</h3>
                 <!-- <form class="d-flex align-items-center h-100" action="#">
                     <div class="input-group">
                         <div class="input-group-prepend bg-transparent">
@@ -28,7 +28,7 @@
                         <!-- <div class="nav-profile-img">
                             <img src="themes/images/faces/face28.png" alt="image">
                         </div> -->
-                        <h5 class="mb-1 text-primary">
+                        <h5 class="mb-1 text-secondary">
                             {{ Auth::user()->name }} 
                         </h5>
                         <div class="nav-profile-text">
@@ -37,24 +37,28 @@
                     </a>
                     <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm"
                         aria-labelledby="profileDropdown" data-x-placement="bottom-end">
-                        <div class="p-3 text-center bg-primary">
+                        <!-- <div class="p-3 text-center bg-primary">
                             <img class="img-avatar img-avatar48 img-avatar-thumb" src="themes/images/faces/face28.png"
                                 alt="">
-                        </div>
+                        </div> -->
                         <div class="p-2">
                             <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"
                                 href="{{route('profile.edit')}}">
                                 <span>Profile</span>
                                 <span class="p-0">
-                            <!-- <span class="badge badge-success"></span> -->
-                            <i class="mdi mdi-account-outline ml-1"></i>
+                                    <span class="badge badge-success"></span>
+                                    <i class="mdi mdi-account-outline ml-1"></i>
                                 </span>
                             </a>
-                            <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"
-                                href="{{route('logout')}}">
-                                <span>Deconnexion</span>
-                                <i class="mdi mdi-logout ml-1"></i>
-                            </a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <a href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Deconnexion') }}
+                                </a>
+                            </form>
                         </div>
                     </div>
                 </li>

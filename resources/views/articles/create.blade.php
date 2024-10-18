@@ -20,6 +20,15 @@
         </x-slot>
         
         <div class="py-12">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data" id="create_form">
                 @csrf
                 <!-- user_id -->
@@ -27,17 +36,10 @@
                     <!-- bloc des images -->
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mb-3">
                         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                             <h2 class="font-semibold text-xl text-light-800 leading-tight text-center">Inserer des photos</h2>
+                             <h2 class="font-semibold text-xl text-light-800 leading-tight text-center">Inserer une photo</h2>
                             <div class="row mt-3">
-                                <div class="col-md-4 form-group">
+                                <div class="col-md-6 form-group">
                                     <input type="file" name="image" id="image" class="form-control">
-                                </div>
-
-                                <div class="col-md-4 form-group">
-                                    <input type="file" name="image2" id="image2" class="form-control">
-                                </div>
-                                <div class="col-md-4 form-group">
-                                    <input type="file" name="image3" id="image3" class="form-control">
                                 </div>
                             </div>
                         </div>

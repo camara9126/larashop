@@ -35,9 +35,7 @@
                                     <div class="row g-4">
                                         <div class="col-lg-6">
                                             <div class="border rounded">
-                                                <a href="#">
-                                                    <img src="{{asset('$articles-image')}}" class="img-fluid rounded" alt="Image">
-                                                </a>
+                                                    <img src="{{ asset('/storage/'.$articles->image) }}" class="img-fluid rounded" alt="{{$articles->title}}">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -51,16 +49,17 @@
                                             </p>
                                             <h5 class="fw-bold mb-3">{{$articles->price}},00&nbsp;Fcfa</h5>
                                             <div class="d-flex mb-4">
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
                                                 <i class="fa fa-star"></i>
                                             </div>
-                                            <p class="mb-4">{{$articles->content}}</p>
+                                            <p class="mb-3">{{$articles->content}}</p>
                                             
-                                            <a href="{{route('article.edit', $articles->id)}}" class="btn btn-outline-warning mb-2" title="modifié"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                            <a href="{{route('article.destroy', $articles->id)}}" class="btn btn-outline-danger mb-2" title="supprimé"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            <p class="mb-2">Contact :</p>
+                                            <b class="btn btn-outline-danger mb-2" title="contact direct"><i class="fa fa-phone" aria-hidden="true">&nbsp;{{auth::user()->tel}}</i></b>
+                                            <a href="https://wa.me/{{auth::user()->tel}}" target="_blank" class="btn btn-outline-success mb-2" title="contact whatsapp"><i class="fa fa-whatsapp"></i></a>
                                             
                                         </div>
                                     </div>

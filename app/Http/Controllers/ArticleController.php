@@ -45,8 +45,9 @@ class ArticleController extends Controller
        
         // Gestion des l'images
         if ($request->hasFile('image')) {
-            // Stockage de l'image dans le dossier 'public/images'
-            $imagePath = $request->file('image')->store('imgArticles', 'public');
+            $filename = time().$request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('imgArticles', $filename, 'public');
+            $request['image'] = '/storage/' . $path;
         } else {
             dd('Aucun fichier image reçu');
         }
@@ -57,7 +58,7 @@ class ArticleController extends Controller
             'content' => $request->content,
             'price' => $request->price,
             'category_id' => $request->category_id,
-            'image' => $imagePath,
+            'image' => $path,
             'stock' => $request->stock,
             'user_id' => $request->user_id,
         ]);
@@ -73,6 +74,7 @@ class ArticleController extends Controller
     {
         $articles= Articles::findOrFail($articles);
         $categories= categories::all();
+        // dd($articles);
         return view('articles.show', compact('articles','categories'));
         
     }
@@ -83,7 +85,8 @@ class ArticleController extends Controller
     public function edit($articles)
     {
         $articles= Articles::findOrFail($articles);
-        return view('articles.edit', compact('articles'));
+        $categories= categories::all();
+        return view('articles.edit', compact('articles', 'categories'));
     }
 
     /**
@@ -91,7 +94,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $articles)
     {
-        $articles= Articles::findOfFail($articles);
+        $articles= Articles::findOrFail($articles);
         $request->validate([
             'title' => 'required','string',
             'content' => 'required',
@@ -100,28 +103,28 @@ class ArticleController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'stock' => 'required',
         ]);
-       
         // Gestion des l'images
         if ($request->hasFile('image')) {
-            // Stockage de l'image dans le dossier 'public/images'
-            $imagePath = $request->file('image')->store('imgArticles', 'public');
+            $filename = time().$request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('imgArticles', $filename, 'public');
+            $request['image'] = '/storage/' . $path;
         } else {
             dd('Aucun fichier image reçu');
         }
 
         // creation de l'article
-        $articles= Articles::updated([
+        $articles->update([
             'title' => $request->title,
             'content' => $request->content,
             'price' => $request->price,
             'category_id' => $request->category_id,
-            'image' => $imagePath,
+            'image' => $path,
             'stock' => $request->stock,
             'user_id' => $request->user_id,
         ]);
 
-        // dd($articles);
-        return redirect()->route('article.index', compact('articles'))->with('success', 'Article crée avec success.'); 
+        // dd($request);
+        return redirect()->route('article.index', compact('articles'))->with('success', 'Article modifié avec success.'); 
     }
 
     /**
