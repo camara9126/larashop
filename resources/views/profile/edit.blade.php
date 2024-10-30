@@ -4,9 +4,16 @@
 <x-app-layout>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Votre Profile') }}
-        </h2>
+        <div class="row">
+            <div class="col-lg-9 col-md-6">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __("Votre Profile") }}
+                </h2>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="{{ route('dashboard') }}" class="btn btn-danger">Annuler</a>
+            </div>
+        </div>        
     </x-slot>
     <div class="py-12">
         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
@@ -31,7 +38,7 @@
                         @method('patch')
 
                         <div>
-                            <x-input-label for="name" :value="__('Name')" />
+                            <x-input-label for="name" :value="__('Nom')" />
                             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
                             <x-input-error class="mt-2" :messages="$errors->get('name')" />
                         </div>

@@ -57,11 +57,11 @@
                         <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active rounded">
-                                    <img src="{{asset('assetsH/img/hero-img-1.png')}}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
+                                    <img src="{{asset('assetsH/img/hero-img-1.jpg')}}" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
                                     <a href="#" class="btn px-4 py-2 text-white rounded">Fruites</a>
                                 </div>
                                 <div class="carousel-item rounded">
-                                    <img src="{{asset('assetsH/img/hero-img-2.png')}}" class="img-fluid w-100 h-100 rounded" alt="Second slide">
+                                    <img src="{{asset('assetsH/img/hero-img-2.jpg')}}" class="img-fluid w-100 h-100 rounded" alt="Second slide">
                                     <a href="#" class="btn px-4 py-2 text-white rounded">Vesitables</a>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-5.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -197,7 +197,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-5.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -213,7 +213,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-2.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-2.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -229,7 +229,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-4.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-4.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -245,7 +245,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-3.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-3.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -261,7 +261,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-1.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -277,7 +277,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-2.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-2.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -293,7 +293,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-5.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -317,7 +317,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-5.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -333,7 +333,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-2.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-2.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -357,7 +357,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-1.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -373,7 +373,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-6.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -397,7 +397,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-5.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -413,7 +413,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-4.png')}}: class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-4.jpg')}}: class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -437,7 +437,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-3.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-3.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -453,7 +453,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-2.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-2.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -469,7 +469,7 @@
                                         <div class="col-md-6 col-lg-4 col-xl-3">
                                             <div class="rounded position-relative fruite-item">
                                                 <div class="fruite-img">
-                                                    <img src="{{asset('assetsH/img/fruite-item-1.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                                                    <img src="{{asset('assetsH/img/fruite-item-1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
@@ -499,7 +499,7 @@
                 <div class="owl-carousel vegetable-carousel justify-content-center">
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-6.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
                         <div class="p-4 rounded-bottom">
@@ -513,7 +513,7 @@
                     </div>
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-1.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('assetsH/img/vegetable-item-1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
                         <div class="p-4 rounded-bottom">
@@ -527,7 +527,7 @@
                     </div>
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-3.png')}}" class="img-fluid w-100 rounded-top bg-light" alt="">
+                            <img src="{{asset('assetsH/img/vegetable-item-3.jpg')}}" class="img-fluid w-100 rounded-top bg-light" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
                         <div class="p-4 rounded-bottom">
@@ -541,7 +541,7 @@
                     </div>
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-4.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('assetsH/img/vegetable-item-4.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
                         <div class="p-4 rounded-bottom">
@@ -555,7 +555,7 @@
                     </div>
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-5.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('assetsH/img/vegetable-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
                         <div class="p-4 rounded-bottom">
@@ -569,7 +569,7 @@
                     </div>
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-6.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
                         <div class="p-4 rounded-bottom">
@@ -583,7 +583,7 @@
                     </div>
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-5.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('assetsH/img/vegetable-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
                         <div class="p-4 rounded-bottom">
@@ -597,7 +597,7 @@
                     </div>
                     <div class="border border-primary rounded position-relative vesitable-item">
                         <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-6.png')}}" class="img-fluid w-100 rounded-top" alt="">
+                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
                         <div class="p-4 rounded-bottom">
@@ -679,7 +679,7 @@
                             <p>Email: Example@gmail.com</p>
                             <p>Phone: +0123 4567 8910</p>
                             <p>Payment Accepted</p>
-                            <img src="{{asset('assetsH/img/payment.png')}}" class="img-fluid" alt="">
+                            <img src="{{asset('assetsH/img/payment.jpg')}}" class="img-fluid" alt="">
                         </div>
                     </div>
                 </div>

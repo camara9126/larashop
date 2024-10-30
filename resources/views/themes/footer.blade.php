@@ -12,7 +12,7 @@
                         templates</a> from Bootstrapdash.com
             </span>    -->
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright ©
-                sunuCode.org 2024
+                larashop 2024
             </span>
         </div>
     </div>

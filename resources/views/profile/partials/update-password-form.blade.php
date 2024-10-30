@@ -3,9 +3,16 @@
 @include('themes.sidebar')
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Modification Mot de Passe') }}
-        </h2>
+        <div class="row">
+            <div class="col-lg-9 col-md-6">
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ __("Modification Mot de Passe") }}
+                </h2>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="{{ route('dashboard') }}" class="btn btn-danger">Annuler</a>
+            </div>
+        </div>        
     </x-slot>
 
     <div class="py-12">

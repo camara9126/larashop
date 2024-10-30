@@ -33,8 +33,6 @@
                     </li>
                      <li class="nav-item"> <a class="nav-link" href="{{route('supprimer')}}"> Supprimer mon compte</a>
                     </li>
-                   <!-- <li class="nav-item"> <a class="nav-link" href=""> Temoignages</a>
-                    </li> -->
                 </ul>
             </div>
         </li>
@@ -42,19 +40,6 @@
             <a class="nav-link" href="{{route('profile.edit')}}">
                 <span class="icon-bg"><i class="mdi mdi-account menu-icon"></i></span>
                 <span class="menu-title">Profil</span>
-            </a>
-        </li> -->
-        
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="?admin=team">
-                <span class="icon-bg"><i class="mdi mdi-account-multiple menu-icon"></i></span>
-                <span class="menu-title">Personnels</span>
-            </a>
-        </li> -->
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="?admin=">
-                <span class="icon-bg"><i class="mdi mdi-account-multiple menu-icon"></i></span>
-                <span class="menu-title">Clients</span>
             </a>
         </li> -->
         
@@ -66,13 +51,6 @@
                 <span class="menu-title">Service Client</span>
             </a>
         </li>
-        <!-- <li class="nav-item sidebar-user-actions">
-            <div class="sidebar-user-menu">
-                <a href="#" class="nav-link"><i class="mdi mdi-settings menu-icon"></i>
-                    <span class="menu-title">Settings</span>
-                </a>
-            </div>
-        </li> -->
         <!-- <li class="nav-item sidebar-user-actions">
             <div class="sidebar-user-menu">
                 <a href="#" class="nav-link"><i class="mdi mdi-speedometer menu-icon"></i>
