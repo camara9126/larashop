@@ -2,10 +2,17 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
+        <!-- Prenom -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-label for="prename" :value="__('Prenom')" />
+            <x-text-input id="prename" class="block mt-1 w-full" type="text" name="prename" :value="old('prename')" required autofocus autocomplete="prename" />
+            <x-input-error :messages="$errors->get('prename')" class="mt-2" />
+        </div>
+
+        <!-- Nom -->
+        <div>
+            <x-input-label for="name" :value="__('Nom')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="nom" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
@@ -21,6 +28,13 @@
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- matricule -->
+        <div class="mt-4">
+            <x-input-label for="matricule" :value="__('Matricule')" />
+            <x-text-input id="matricule" class="block mt-1 w-full" type="number" name="matricule" :value="old('matricule')" required  />
+            <x-input-error :messages="$errors->get('matricule')" class="mt-2" />
         </div>
 
         <!-- Password -->

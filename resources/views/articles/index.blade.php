@@ -43,8 +43,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @if($articles->count() > 0)
                                     @foreach($articles as $art)
+                                    @if($art->user_id == Auth::user()->id)
                                         <tr>
                                             <th scope="row"></th>
                                             <td>
@@ -53,7 +53,7 @@
                                             <td>{{$art->title}}</td>
                                             <td>
                                                 @foreach($categories as $cat)
-                                                @if($cat->id == $art->id)
+                                                @if($cat->id == $art->category_id)
                                                     {{$cat->name}}
                                                 @endif
                                                 @endforeach
@@ -74,8 +74,8 @@
                                                
                                             </td>
                                         </tr>
+                                    @endif
                                     @endforeach
-                                    @endif    
                                     </tbody>
                                 </table>
                             </div>

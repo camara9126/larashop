@@ -11,7 +11,7 @@
                 </h2>
             </div>
             <div class="col-lg-3 col-md-6">
-                <a href="{{ route('dashboard') }}" class="btn btn-danger">Annuler</a>
+                <a href="{{ route('dashboard') }}" class="btn btn-danger">Retour</a>
             </div>
         </div>        
     </x-slot>
@@ -25,7 +25,7 @@
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
-                            {{ __("Update your account's profile information and email address.") }}
+                            {{ __("Vos informations profile") }}
                         </p>
                     </header>
 
@@ -38,20 +38,26 @@
                         @method('patch')
 
                         <div>
+                            <x-input-label for="prename" :value="__('Prenom')" />
+                            <x-text-input id="prename" name="prename" type="text" class="mt-1 block w-full" :value="old('prename', $user->prename)" required autofocus autocomplete="prename" readonly />
+                            <x-input-error class="mt-2" :messages="$errors->get('prename')" />
+                        </div>
+
+                        <div>
                             <x-input-label for="name" :value="__('Nom')" />
-                            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+                            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" readonly />
                             <x-input-error class="mt-2" :messages="$errors->get('name')" />
                         </div>
 
                         <div>
                             <x-input-label for="telephone" :value="__('Telephone')" />
-                            <x-text-input id="tel" name="tel" type="text" class="mt-1 block w-full" :value="old('tel', $user->tel)" required autofocus autocomplete="username" />
+                            <x-text-input id="tel" name="tel" type="text" class="mt-1 block w-full" :value="old('tel', $user->tel)" required autofocus autocomplete="username" readonly />
                             <x-input-error class="mt-2" :messages="$errors->get('tel')" />
                         </div>
 
                         <div>
                             <x-input-label for="email" :value="__('Email')" />
-                            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+                            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" readonly />
                             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
                             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
@@ -72,9 +78,14 @@
                                 </div>
                             @endif
                         </div>
+                        <div>
+                            <x-input-label for="matricule" :value="__('Matricule')" />
+                            <x-text-input id="matricule" name="matricule" type="text" class="mt-1 block w-full" :value="old('matriclue', $user->matricule)" required autofocus autocomplete="username" readonly />
+                            <x-input-error class="mt-2" :messages="$errors->get('matricule')" />
+                        </div>
 
                         <div class="flex items-center gap-4">
-                            <a href="{{route('editer')}}" class="btn btn-outline-warning">{{ __('Modifier') }}</a>
+                            <a href="{{route('editer')}}" class="btn btn-outline-warning">{{ __('Modifier mon profile') }}</a>
                         </div>
                     </form>
                 </section>
