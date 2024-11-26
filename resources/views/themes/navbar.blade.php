@@ -1,25 +1,42 @@
 <div class="container-scroller">
+<?php
+    use Illuminate\Support\Facades\Auth;
+
+    $dateCreation = Auth::user()->created_at; // Date de création de l'utilisateur
+    $dateRestant = $dateCreation->addDays(15); // Ajouter 15 jours
+    // $dateRestant = $dateActuelle->diffInDays($dateCreation);
+?>
        <!-- partie navbar  -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo text-white" href="/"><i class="mdi mdi-home ml-1"></i>Page</a>
-            <!-- <a class="navbar-brand brand-logo-mini" href="?sunucode=home">
-                    Home</a> -->
+            <a class="navbar-brand brand-logo text-white" href="/"><p><i class="mdi mdi-home ml-1"></i> Page d' accueil</p></a>
+            <a class="navbar-brand brand-logo-mini" href="/">
+                <i class="mdi mdi-home ml-1"></i>
+            </a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="mdi mdi-menu"></span>
             </button>
             <div class="search-field d-none d-xl-block">
-                <h3 class="d-flex align-items-center mt-3">Bienvenue !</h3>
-                <!-- <form class="d-flex align-items-center h-100" action="#">
-                    <div class="input-group">
-                        <div class="input-group-prepend bg-transparent">
-                            <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                @if(Auth::user()->statut == 'client')
+
+                        @if ($dateRestant->isPast())
+                            <marquee behavior="" direction="left"><h3 class="d-flex align-items-center mt-3"><b><i class="text-danger">NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('paiement') }}">Abonnez-vous maintenant</a>.</h3></marquee>
+                        @else
+                            <marquee behavior="" direction="left"><h3 class="d-flex align-items-center mt-3"><b><i class="text-danger">NB :</i> </b>Votre période d'essai gratuit expire le {{ $dateRestant }} .</h3></marquee>
+                        @endif
+ 
+                @elseif(Auth::user()->statut == 'admin')
+                    <form class="d-flex align-items-center h-100" action="#">
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                                <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                            </div>
+                            <input type="text" class="form-control bg-transparent border-0" placeholder="Search products">
                         </div>
-                        <input type="text" class="form-control bg-transparent border-0" placeholder="Search products">
-                    </div>
-                </form> -->
+                    </form>
+                @endif
             </div>
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-profile dropdown">

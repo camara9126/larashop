@@ -18,7 +18,7 @@
 
         <!-- Telephone Address -->
         <div class="mt-4">
-            <x-input-label for="tel" :value="__('Telephone')" />
+            <x-input-label for="tel" :value="__('Contact')" />
             <x-text-input id="tel" class="block mt-1 w-full" type="tel" name="tel" :value="old('tel')" required  />
             <x-input-error :messages="$errors->get('tel')" class="mt-2" />
         </div>
@@ -39,7 +39,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Mot de passe')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -51,7 +51,7 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('Confirmation Mot de passe')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
@@ -66,7 +66,7 @@
             </a>
 
             <x-primary-button class="ms-4">
-                {{ __('Register') }}
+                {{ __('S\'inscrire') }}
             </x-primary-button>
         </div>
     </form>

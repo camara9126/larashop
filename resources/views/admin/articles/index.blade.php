@@ -1,6 +1,7 @@
 @include('themes.header')
 @include('themes.navbar')
 @include('themes.sidebar')
+
     @if(Session::has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ Session::get('success') }}
@@ -10,8 +11,9 @@
                     {{ Session::get('danger') }}
                 </div>
     @endif
-        
-        <x-app-layout>
+
+
+    <x-app-layout>
             <x-slot name="header">
                 <div class="row">
                     <div class="col-lg-9 col-md-6">
@@ -19,16 +21,9 @@
                             {{ __("Articles") }}
                         </h2>
                     </div>
-                    @if(Auth::user()->paiement == 0)
-                        <div class="col-lg-3 col-md-6">
-                            <a href="{{ route('article.create') }}" class="btn btn-primary">Ajout Article</a>
-                        </div>
-                    @else
-                        <div class="col-lg-3 col-md-6">
-                            <marquee class="text-danger">Abonnement non renouvelée !</marquee>
-                            <a href="{{route('paiement')}}" class="btn btn-primary">Renouveler</a>
-                        </div>
-                    @endif
+                    <div class="col-lg-3 col-md-6">
+                        <a href="{{ route('dashboard') }}" class="btn btn-danger"> Retour</a>
+                    </div>
                 </div>
             </x-slot>
             
@@ -37,7 +32,6 @@
                     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                         <div class="row">
                             <div class="col-md-12">
-                                <b>Veuillez finaliser votre Abonnement pour publier des articles</b>
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
@@ -52,8 +46,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($articlesC as $art)
-                                        @if($art->user_id == Auth::user()->id && $art->reponse == 0)
+                                        @foreach($articlesA as $art)
                                             <tr>
                                                 <th scope="row"></th>
                                                 <td>
@@ -71,20 +64,23 @@
                                                 <td>{{$art->created_at}}</td>
                                                 <td>
                                                     <a href="{{route('article.show', $art->id)}}" class="btn btn-outline-info"><i class="fa fa-eye" aria-hidden="true"></i></a><br>
-                                                    <a href="{{route('article.edit', $art->id)}}" class="btn btn-outline-warning"><i class="fa fa-check" aria-hidden="true"></i></a><br>
-                                                    <form action="{{ route('article.destroy', $art->id) }}" type="button" method="post" onsubmit="return confirm('Supprimer ?')">
+                                                    <!-- <a href="{{route('article.edit', $art->id)}}" class="btn btn-outline-warning"><i class="fa fa-check" aria-hidden="true"></i></a><br> -->
+                                                    @if ($art->reponse == 1)
+                                                    <form action="{{ route('articles.activate', $art) }}" method="POST">
                                                         @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-outline-danger">
-                                                            <i class="fa fa-times" aria-hidden="true"></i>
-                                                        </button>
+                                                        @method('PATCH')
+                                                        <button type="submit" class="btn btn-danger">OFF</button>
                                                     </form>
-                                                    <!-- <a href="{{route('article.destroy', $art->id)}}" class="btn btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a> -->
+                                                    @else
+                                                    <form action="{{ route('articles.desactivate', $art) }}" method="POST">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <button type="submit" class="btn btn-success">ON</button>
+                                                    </form>
+                                                    @endif
                                                 
                                                 </td>
                                             </tr>
-                                        @endif
-                                        
                                         @endforeach
                                         </tbody>
                                     </table>
@@ -95,5 +91,4 @@
                 </div>
             </div>
         </x-app-layout>
-
 @include('themes.footer')

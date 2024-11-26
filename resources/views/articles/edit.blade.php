@@ -37,17 +37,17 @@
             <form method="POST" action="{{ route('article.update', $articles->id) }}" enctype="multipart/form-data" id="create_form">
                 @csrf
                 <!-- user_id -->
-                 <input type="hidden" name="user_id" value="{{auth::user()->id}}">
+                 <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                     <!-- bloc des images -->
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mb-3">
                         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                              <h2 class="font-semibold text-xl text-light-800 leading-tight text-center">Votre Photo</h2>
                             <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <img src="{{asset('storage/'.$articles->image)}}" alt="">
-                                </div>
                                 <div class="col-md-6 form-group">
                                     <input type="file" name="image" id="image" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="{{asset('storage/'.$articles->image)}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -58,8 +58,8 @@
                              <h2 class="font-semibold text-xl text-light-800 leading-tight text-center">Decriver votre annonce</h2>
                             <div class="row mt-3">
                                 <div class="col-md-6 form-group">
-                                <label for="title">titre</label>
-                                <input type="text" name="title" id="text" value="{{$articles->title}}" class="form-control">
+                                <label for="title">titre : <p class="text-danger">Impossible de modifier le titre !</p></label>
+                                <input type="text" name="title" id="text" value="{{$articles->title}}" class="form-control" readonly>
                                 </div>
                                 <div class=" col-md-6 form-group">
                                     <label for="category">Choisir une Categorie</label>
@@ -89,6 +89,7 @@
                     </div>
                     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                         <h2 class="font-semibold text-xl text-light-800 leading-tight text-center">
+                        <input type="hidden" name="contact" id="contact" value="{{Auth::user()->tel}}">
                             <button type="submit" class="btn btn-outline-warning">Modifier</button>
                         </h2>
                     </div>

@@ -18,15 +18,15 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
         <!-- Libraries Stylesheet -->
-        <link href="{{('assetsH/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
-        <link href="{{('assetsH/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assetsH/lib/lightbox/css/lightbox.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assetsH/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
 
         <!-- Customized Bootstrap Stylesheet -->
-        <link href="{{('assetsH/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('assetsH/css/bootstrap.min.css')}}" rel="stylesheet">
 
         <!-- Template Stylesheet -->
-        <link href="{{('assetsH/css/style.css')}}" rel="stylesheet">
+        <link href="{{asset('assetsH/css/style.css')}}" rel="stylesheet">
     </head>
 
     <body>
@@ -43,9 +43,9 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">Shop Detail</h1>
+            <h1 class="text-center text-white display-6">Description Article</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
                 <li class="breadcrumb-item active text-white">Shop Detail</li>
             </ol>
@@ -54,38 +54,45 @@
 
         <!-- Single Product Start -->
         <div class="container-fluid py-5 mt-5 pt-5">
-            <div class="container py-5">
-                <div class="row g-4 mb-5">
-                    <div class="col-lg-8 col-xl-9">
-                        <div class="row g-4">
-                            <div class="col-lg-6">
-                                <div class="border rounded">
-                                    <a href="#">
-                                        <img src="{{asset('assetsH/img/single-item.jpg')}}" class="img-fluid rounded" alt="Image">
-                                    </a>
+                        <div class="container py-5">
+                            <div class="row g-4 mb-5">
+                                <div class="col-lg-8 col-xl-9">
+                                    <div class="row g-4">
+                                        <div class="col-lg-6">
+                                            <div class="border rounded">
+                                                <img src="{{ asset('storage/'.$articles->image) }}" class="img-fluid rounded" alt="{{$articles->title}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h4 class="fw-bold mb-3">{{$articles->title}}</h4>
+                                            <p class="mb-3">Categorie:
+                                                @foreach($categories as $category)
+                                                @if($category->id == $articles->category_id)
+                                                    {{$category->name}}
+                                                @endif
+                                                @endforeach
+                                            </p>
+                                            <h5 class="fw-bold mb-3">{{$articles->price}},00&nbsp;Fcfa</h5>
+                                            <div class="d-flex mb-4">
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <p class="mb-3 border rounded">{{$articles->content}}</p>
+                                            
+                                            <p class="mb-2">Contact :</p>
+                                            <b class="btn btn-outline-danger mb-2" title="contact direct"><i class="fa fa-phone" aria-hidden="true">&nbsp;{{$articles->contact}}</i></b>
+                                            <a href="https://wa.me/{{$articles->contact}}" target="_blank" class="btn btn-outline-success mb-2" title="contact whatsapp"><i class="fa fa-whatsapp"></i></a>
+                                            
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <h4 class="fw-bold mb-3">Brocoli</h4>
-                                <p class="mb-3">Category: Vegetables</p>
-                                <h5 class="fw-bold mb-3">3,35 $</h5>
-                                <div class="d-flex mb-4">
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star text-secondary"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <p class="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
-                                <p class="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish</p>
-                                
-                                <a href="#" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
         <!-- Single Product End --> 
               
             
@@ -189,13 +196,13 @@
 <!-- JavaScript Libraries -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{{('assetsH/lib/easing/easing.min.js')}}"></script>
-<script src="{{('assetsH/lib/waypoints/waypoints.min.js')}}"></script>
-<script src="{{('assetsH/lib/lightbox/js/lightbox.min.js')}}"></script>
-<script src="{{('assetsH/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assetsH/lib/easing/easing.min.js')}}"></script>
+<script src="{{asset('assetsH/lib/waypoints/waypoints.min.js')}}"></script>
+<script src="{{asset('assetsH/lib/lightbox/js/lightbox.min.js')}}"></script>
+<script src="{{asset('assetsH/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
 <!-- Template Javascript -->
-<script src="{{('assetsH/js/main.js')}}"></script>
+<script src="{{asset('assetsH/js/main.js')}}"></script>
 </body>
 
 </html>

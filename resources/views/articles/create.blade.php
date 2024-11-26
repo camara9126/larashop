@@ -39,7 +39,7 @@
             <form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data" id="create_form">
                 @csrf
                 <!-- user_id -->
-                 <input type="hidden" name="user_id" value="{{auth::user()->id}}">
+                 <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                     <!-- bloc des images -->
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mb-3">
                         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
@@ -100,6 +100,7 @@
                     </div>
                     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                             <h2 class="font-semibold text-xl text-light-800 leading-tight text-center">
+                                <input type="hidden" name="contact" id="contact" value="{{auth::user()->tel}}">
                                 <button type="submit" class="btn btn-outline-success">Publier</button>
                             </h2>
                     </div>
