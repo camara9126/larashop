@@ -3,9 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Carbon;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use App\Http\Middleware\CheckSubscription;
 
 class User extends Authenticatable
 {
@@ -24,6 +26,7 @@ class User extends Authenticatable
         'matricule',
         'password',
         'statut',
+        'paiement',
     ];
 
     /**
@@ -53,4 +56,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(articles::class);
     }
+
+    public function isOnTrial()
+    {
+        return $this->periode_essai && Carbon::now()->lessThanOrEqualTo($this->periode_essai);
+    }
+
+    public function hasPaidSubscription()
+    {
+        // Par exemple, vérifie un champ `subscription_status` ou une relation avec un modèle `Payment`
+        return $this->subscription_status === 'active';
+    }
+
 }

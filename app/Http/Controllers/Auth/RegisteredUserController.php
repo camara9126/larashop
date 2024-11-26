@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
+use App\Models\categories;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Auth\Events\Registered;
 
 class RegisteredUserController extends Controller
 {
@@ -45,6 +47,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'matricule' => $request->matricule,
             'password' => Hash::make($request->password),
+            'periode_essai' => Carbon::now()->addDays(15),
         ]);
 
         event(new Registered($user));
@@ -53,4 +56,29 @@ class RegisteredUserController extends Controller
 
         return redirect(route('dashboard', absolute: false));
     }
+
+    // Liste des Users
+    public function all()
+    {
+        $users= User::where(['statut'=>'client'])->get();
+        return view('admin.users.index', compact('users'));
+    }
+    // Activation users
+    public function activate($users)
+    {
+        $users= User::FindOrFail($users);
+        $users->update(['paiement'=> 0]);
+        // dd($users);
+        return redirect()->back()->with('success', 'Utilisateur activé avec succès.');
+    }
+
+    // Desactivation users
+    public function desactivate($users)
+    {
+        $users= User::FindOrFail($users);
+        $users->update(['paiement'=> 1]);
+        // dd($users);
+        return redirect()->back()->with('success', 'Utilisateur desactivé avec succès.');
+    }
+
 }

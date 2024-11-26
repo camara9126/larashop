@@ -17,6 +17,9 @@ class articles extends Model
         'image',
         'category_id',
         'user_id',
+        'contact',
+        'click_count',
+        'reponse',
         ];
 
     public function category()
@@ -26,9 +29,10 @@ class articles extends Model
 
     public function users()
         {
-            return $this->belongsTo(categories::class);
+            return $this->belongsTo(User::class);
         }
 
+        // creation de slug a chaque article
         protected static function boot()
             {
                 parent::boot();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\categories;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -11,7 +12,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories= categories::all();
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -19,7 +21,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -27,7 +29,27 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required','string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Gestion des l'images
+        if ($request->hasFile('image')) {
+            $filename = time().$request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('imgCategories', $filename, 'public');
+            $request['image'] = '/storage/' . $path;
+        } else {
+            dd('Aucun fichier image reçu');
+        }
+
+        // creation du categorie
+        $categories= categories::create([
+            'name' => $request->name,
+            'image' => $path,
+        ]);
+        // dd($categories);
+        return redirect()->route('categories.index', compact('categories'))->with('success', 'Categorie crée avec success.');
     }
 
     /**
@@ -57,8 +79,11 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $categories)
     {
-        //
+        $categories=Categories::FindOrFail($categories);
+        $categories->delete();
+
+        return redirect()->back()->with('success', 'Categorie supprimé avec success');
     }
 }
