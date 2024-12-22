@@ -53,18 +53,18 @@
         <!-- Single Page Header End -->
 
         <!-- Single Product Start -->
-        <div class="container-fluid py-5 mt-5 pt-5">
+        <div class="container-fluid details py-5 mt-5 pt-5">
                         <div class="container py-5">
                             <div class="row g-4 mb-5">
                                 <div class="col-lg-8 col-xl-9">
                                     <div class="row g-4">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-8">
                                             <div class="border rounded">
                                                 <img src="{{ asset('storage/'.$articles->image) }}" class="img-fluid rounded" alt="{{$articles->title}}">
-                                            </div>
+                                                <legend>{{$articles->title}}</legend>
+                                            </div>                
                                         </div>
-                                        <div class="col-lg-6">
-                                            <h4 class="fw-bold mb-3">{{$articles->title}}</h4>
+                                        <div class="col-lg-4">
                                             <p class="mb-3">Categorie:
                                                 @foreach($categories as $category)
                                                 @if($category->id == $articles->category_id)
@@ -72,7 +72,6 @@
                                                 @endif
                                                 @endforeach
                                             </p>
-                                            <h5 class="fw-bold mb-3">{{$articles->price}},00&nbsp;Fcfa</h5>
                                             <div class="d-flex mb-4">
                                                 <i class="fa fa-star text-warning"></i>
                                                 <i class="fa fa-star text-warning"></i>
@@ -82,9 +81,15 @@
                                             </div>
                                             <p class="mb-3 border rounded">{{$articles->content}}</p>
                                             
+                                            
+                                            <h5 class="fw-bold mb-3">{{$articles->price}},00&nbsp;Fcfa</h5>
+                                            
+                                            
+                                            
                                             <p class="mb-2">Contact :</p>
                                             <b class="btn btn-outline-danger mb-2" title="contact direct"><i class="fa fa-phone" aria-hidden="true">&nbsp;{{$articles->contact}}</i></b>
-                                            <a href="https://wa.me/{{$articles->contact}}" target="_blank" class="btn btn-outline-success mb-2" title="contact whatsapp"><i class="fa fa-whatsapp"></i></a>
+                                            <a href="https://wa.me/{{$articles->contact}}?text=Bonjour, je suis intéressé(e) par ce produit:{{asset('storage/'.$articles->image)}}.
+                                            Nom: {{$articles->title}}, Prix= {{$articles->price}} Fcfa." target="_blank" class="btn btn-outline-success mb-2" title="contact whatsapps"><i class="fa fa-whatsapp"></i></a>
                                             
                                         </div>
 

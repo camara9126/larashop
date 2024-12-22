@@ -72,10 +72,10 @@
                                         </div>
                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div>
                                         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>{{$res->title}}</h4>
-                                            <p>{{$res->content}}</p>
+                                            <h4>{!!Str::limit($res->title, 17)!!}</h4>
+                                            <p>{{$res->stock}} en stock</p>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                <p class="text-dark fs-5 fw-bold mb-0">{{$res->price}} FCFA</p>
+                                                <p class="text-dark fs-5 fw-bold mt-0">{{$res->price}} FCFA</p>
                                                 <a href="{{route('article.view', $res->slug)}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
                                             </div>
                                         </div>

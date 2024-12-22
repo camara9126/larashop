@@ -63,20 +63,12 @@
                                                 <td>{{$art->stock}}</td>
                                                 <td>{{$art->created_at}}</td>
                                                 <td>
-                                                    <a href="{{route('article.show', $art->id)}}" class="btn btn-outline-info"><i class="fa fa-eye" aria-hidden="true"></i></a><br>
+                                                    <a href="{{route('article.show', $art->id)}}" class="btn btn-outline-warning" title="consulter"><i class="fa fa-eye" aria-hidden="true"></i></a><br>
                                                     <!-- <a href="{{route('article.edit', $art->id)}}" class="btn btn-outline-warning"><i class="fa fa-check" aria-hidden="true"></i></a><br> -->
                                                     @if ($art->reponse == 1)
-                                                    <form action="{{ route('articles.activate', $art) }}" method="POST">
-                                                        @csrf
-                                                        @method('PATCH')
-                                                        <button type="submit" class="btn btn-danger">OFF</button>
-                                                    </form>
+                                                        <button type="" class="btn btn-danger" title="rejeté"><i class=" fa fa-times" aria-hidden="true"></i></button>
                                                     @else
-                                                    <form action="{{ route('articles.desactivate', $art) }}" method="POST">
-                                                        @csrf
-                                                        @method('PATCH')
-                                                        <button type="submit" class="btn btn-success">ON</button>
-                                                    </form>
+                                                        <button type="" class="btn btn-success" title="approuvé"><i class=" fa fa-check" aria-hidden="true"></i></button>
                                                     @endif
                                                 
                                                 </td>

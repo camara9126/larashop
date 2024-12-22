@@ -41,9 +41,9 @@
             </li>
             @if ($dateRestant->isPast())
             <li class="nav-item">
-                <a class="nav-link" href="{{route('paiement')}}">
+                <a class="nav-link" href="{{route('abonne')}}">
                     <span class="icon-bg"><i class="mdi mdi-file menu-icon"></i></span>
-                    <span class="menu-title">Renouveler mon Abonnement</span>
+                    <span class="menu-title">Renouvelement</span>
                 </a>
             </li>
             @endif

@@ -12,16 +12,14 @@
                 </div>
     @endif
 
+
     <x-app-layout>
             <x-slot name="header">
                 <div class="row">
-                    <div class="col-lg-9 col-md-6">
+                    <div class="col-lg-10 col-md-10">
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                            {{ __("Articles") }}
+                            {{ __("Utilisateur Recherché") }}
                         </h2>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <a href="{{ route('dashboard') }}" class="btn btn-danger"> Retour</a>
                     </div>
                 </div>
             </x-slot>
@@ -46,18 +44,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($users as $users)
+                                        @foreach($resultat as $res)
                                             <tr>
-                                                <td>{{$users->id}}</td>
+                                                <td>{{$res->id}}</td>
                                                 <td>
-                                                    @if ($users->paiement == 1)
-                                                        <form action="{{ route('users.activate', $users) }}" method="POST">
+                                                    @if ($res->paiement == 1)
+                                                        <form action="{{ route('users.activate', $res) }}" method="POST">
                                                             @csrf
                                                             @method('PATCH')
                                                             <button type="submit" class="btn btn-danger">Impayé</button>
                                                         </form>
                                                     @else
-                                                        <form action="{{ route('users.desactivate', $users) }}" method="POST">
+                                                        <form action="{{ route('users.desactivate', $res) }}" method="POST">
                                                             @csrf
                                                             @method('PATCH')
                                                             <button type="submit" class="btn btn-success">Payé</button>
@@ -65,12 +63,12 @@
                                                     @endif
                                                 
                                                 </td>
-                                                <td>{{$users->prename}}</td>
-                                                <td>{{$users->name}}</td>
-                                                <td>{{$users->email}}</td>
-                                                <td>{{$users->matricule}}</td>
-                                                <td>{{$users->tel}}</td>
-                                                <td>{{$users->created_at}}</td>
+                                                <td>{{$res->prename}}</td>
+                                                <td>{{$res->name}}</td>
+                                                <td>{{$res->email}}</td>
+                                                <td>{{$res->matricule}}</td>
+                                                <td>{{$res->tel}}</td>
+                                                <td>{{$res->created_at}}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -81,5 +79,5 @@
                     </div>
                 </div>
             </div>
-        </x-app-layout>
-@include('themes.footer')
+</x-app-layout>
+@include('themes.footer')                        

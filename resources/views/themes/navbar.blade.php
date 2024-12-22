@@ -22,20 +22,38 @@
                 @if(Auth::user()->statut == 'client')
 
                         @if ($dateRestant->isPast())
-                            <marquee behavior="" direction="left"><h3 class="d-flex align-items-center mt-3"><b><i class="text-danger">NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('paiement') }}">Abonnez-vous maintenant</a>.</h3></marquee>
+                            <marquee behavior="" direction="left"><h3 class="d-flex align-items-center mt-3"><b><i class="text-danger">NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('abonne') }}">Abonnez-vous maintenant</a>.</h3></marquee>
                         @else
                             <marquee behavior="" direction="left"><h3 class="d-flex align-items-center mt-3"><b><i class="text-danger">NB :</i> </b>Votre période d'essai gratuit expire le {{ $dateRestant }} .</h3></marquee>
                         @endif
  
                 @elseif(Auth::user()->statut == 'admin')
-                    <form class="d-flex align-items-center h-100" action="#">
-                        <div class="input-group">
-                            <div class="input-group-prepend bg-transparent">
-                                <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                            </div>
-                            <input type="text" class="form-control bg-transparent border-0" placeholder="Search products">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <!-- formulaire de recherche article  -->
+                            <form class="d-flex align-items-center h-100" method="get" action="{{route('search.article')}}">
+                                <div class="input-group">
+                                    <div class="input-group-prepend bg-transparent">
+                                        <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                                    </div>
+                                    <input type="text" name="article" class="form-control bg-transparent border-0" value="{{ request()->article ?? ''}}" placeholder="Search products">
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                        <div class="col-md-6">
+                            <!-- formulaire de recherche utilisateur  -->
+                            <form class="d-flex align-items-center h-100" method="get" action="{{route('search.user')}}">
+                                <div class="input-group">
+                                    <div class="input-group-prepend bg-transparent">
+                                        <i class="input-group-text border-0 mdi mdi-magnify"></i>
+                                    </div>
+                                    <input type="text" name="user" class="form-control bg-transparent border-0" value="{{ request()->user ?? ''}}" placeholder="Search user">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    
                 @endif
             </div>
             <ul class="navbar-nav navbar-nav-right">

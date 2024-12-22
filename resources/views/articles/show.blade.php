@@ -30,8 +30,8 @@
                     <!-- Single Product Start -->
                     <div class="container-fluid py-5 mt-5 pt-5">
                         <div class="container py-5">
-                            <div class="row g-4 mb-5">
-                                <div class="col-lg-8 col-xl-9">
+                            <div class="row g-4">
+                                <div class="col-lg-10 col-xl-10">
                                     <div class="row g-4">
                                         <div class="col-lg-6">
                                             <div class="border rounded">
@@ -62,37 +62,61 @@
                                             <a href="https://wa.me/{{auth::user()->tel}}" target="_blank" class="btn btn-outline-success mb-2" title="contact whatsapp"><i class="fa fa-whatsapp"></i></a>
                                             
                                         </div>
-
-                                        @if(Auth::user()->statut == 'admin')
-                                            <h4 class="font-semibold text-xl text-gray-800 leading-tightmt-3">
-                                                @foreach($users as $us)
-                                                @if($us->id == $articles->user_id)
-                                                Propriétaire: {{$us->prename}} {{$us->name}}
-                                                @endif
-                                                @endforeach
-                                            </h4>
-                                            <!-- <h4><i class="me-1 fa fa-solid fa-phone text-danger">:</i>{{auth::user()->prename}}</h4> -->
-                                                    
-                                              
+                                    </div>
+                                    <!-- Partie Admin  -->
+                                    @if(Auth::user()->statut == 'admin')
+                                    <div class="row g-4">
+                                        <div class="col-md-12">
                                             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg mt-4">
-                                                <h2 class="font-semibold text-xl text-light-800 leading-tight text-center">
+                                               
+                                                <h4 class="font-semibold text-center text-xl text-800 leading-tight mb-3">Approbation de l' Admin</h4>
+                                                    @foreach($users as $us)
+                                                    @if($us->id == $articles->user_id)
+                                                        <p class="text-xl mt-2">Propriétaire: 
+                                                            <h4 class="font-semibold text-xl text-gray-600 leading-tight">
+                                                            {{$us->prename}} {{$us->name}}
+                                                            </h4>
+                                                        </p>
+                                                        <p class="text-xl mt-2">Email: 
+                                                            <h4 class="font-semibold text-xl text-gray-600 leading-tight">
+                                                            {{$us->email}}
+                                                            </h4>
+                                                        </p>
+                                                        <p class="text-xl mt-2">Contact: 
+                                                            <h4 class="font-semibold text-xl text-gray-600 leading-tight">
+                                                            {{$us->tel}}
+                                                            </h4>
+                                                        </p>
+                                                        <p class="text-xl mt-2">Matricule: 
+                                                            <h4 class="font-semibold text-xl text-gray-600 leading-tight">
+                                                            {{$us->matricule}}
+                                                            </h4>
+                                                        </p>
+                                                        
+                                                     @endif
+                                                    @endforeach
+                                                
+                                                <!-- <h4><i class="me-1 fa fa-solid fa-phone text-danger">:</i>{{auth::user()->prename}}</h4> -->
+                                                <h2 class="font-semibold text-xl text-light-800 leading-tight text-center mt-3">
                                                     @if ($articles->reponse == 1)
                                                         <form action="{{ route('articles.activate', $articles) }}" method="POST">
                                                             @csrf
                                                             @method('PATCH')
-                                                            <button type="submit" class="btn btn-danger">OFF</button>
+                                                            <button type="submit" class="btn btn-danger" title="rejeté"><i class="fa fa-times" aria-hidden="true"></i></button>
                                                         </form>
                                                     @else
                                                         <form action="{{ route('articles.desactivate', $articles) }}" method="POST">
                                                             @csrf
                                                             @method('PATCH')
-                                                            <button type="submit" class="btn btn-success">ON</button>
+                                                            <button type="submit" class="btn btn-success" title="approuvé"><i class="fa fa-check" aria-hidden="true"></i></button>
                                                         </form>
                                                     @endif
                                                 </h2>
+                                                
                                             </div>
-                                        @endif
+                                        </div>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

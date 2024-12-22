@@ -15,20 +15,44 @@
             </h2>
             <hr><br>
             @if ($dateRestant->isPast())
-                <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('paiement') }}">Abonnez-vous maintenant</a>.</h3>
+                <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('abonne') }}">Abonnez-vous maintenant</a>.</h3>
             @else
                 <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">NB :</i> </b>Votre période d'essai gratuit expire le {{ $dateRestant }} .</h3>
             @endif
 
             <hr>
-            
-                <div class="tab-content">
-                    <div id="tab-1" class="tab-pane fade show p-0 active">
-                        <h3 class="font-semibold text-xl-center text-gray-800 leading-tight">Vos Articles récements consultés</h3>
+             <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+                    <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                <th scope="col"><h5>Informations Profile</h5></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h4><b>{{Auth::user()->prename}}&nbsp;{{Auth::user()->name}}</b></h4>
+                                        <h4><b>{{Auth::user()->matricule}}</b></h4>
+                                        <h4><b>{{Auth::user()->email}}</b></h4>
+                                        <h4><b>+221&nbsp;{{Auth::user()->tel}}</b></h4>
+                                        <h4><b>Inscris le {{Auth::user()->created_at}}</b></h4>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+                    <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                        <h3 class="font-semibold text-xl-center text-gray-600 leading-tight mb-3">Vos Articles récements consultés</h3>
                         <div class="row g-4">
                             @foreach($articlesC as $art)
-                            @if($art->user_id == Auth::user()->id && $art->click_count > 0)
+                            @if($art->click_count > 0)
                                 
                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                     
@@ -53,34 +77,12 @@
                             @endforeach
                         </div>
                     </div>
-                </div>            
+                </div>  
+            </div>          
 
         </x-slot>
 
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                            <th scope="col"><h5>Informations Personnels</h5></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h4><b>{{Auth::user()->prename}}&nbsp;{{Auth::user()->name}}</b></h4>
-                                    <h4><b>{{Auth::user()->matricule}}</b></h4>
-                                    <h4><b>{{Auth::user()->email}}</b></h4>
-                                    <h4><b>+221&nbsp;{{Auth::user()->tel}}</b></h4>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
+       
 </x-app-layout>
 
 @include('themes.footer')

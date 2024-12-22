@@ -46,8 +46,9 @@
                                     <input type="file" name="image" id="image" class="form-control">
                                 </div>
                             </div>
-                            <div class="row mt-3">
+                            <div class="row">
                                 <div class="col-md-6 form-group">
+                                    <label for="">Titre</label>
                                     <input type="text" name="name" id="name" class="form-control">
                                 </div>
                             </div>

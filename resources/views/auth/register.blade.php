@@ -5,35 +5,35 @@
         <!-- Prenom -->
         <div>
             <x-input-label for="prename" :value="__('Prenom')" />
-            <x-text-input id="prename" class="block mt-1 w-full" type="text" name="prename" :value="old('prename')" required autofocus autocomplete="prename" />
+            <x-text-input id="prename" class="block mt-1 w-full" type="text" name="prename" :value="old('prename')" required autofocus autocomplete="prename" placeholder="Votre prénom" />
             <x-input-error :messages="$errors->get('prename')" class="mt-2" />
         </div>
 
         <!-- Nom -->
         <div>
             <x-input-label for="name" :value="__('Nom')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="nom" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="nom" placeholder="Votre Nom" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
         <!-- Telephone Address -->
         <div class="mt-4">
             <x-input-label for="tel" :value="__('Contact')" />
-            <x-text-input id="tel" class="block mt-1 w-full" type="tel" name="tel" :value="old('tel')" required  />
+            <x-text-input id="tel" class="block mt-1 w-full" type="tel" name="tel" :value="old('tel')" required placeholder="Exp:770002233" />
             <x-input-error :messages="$errors->get('tel')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required placeholder="@zig.univ.sn" autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- matricule -->
         <div class="mt-4">
             <x-input-label for="matricule" :value="__('Matricule')" />
-            <x-text-input id="matricule" class="block mt-1 w-full" type="number" name="matricule" :value="old('matricule')" required  />
+            <x-text-input id="matricule" class="block mt-1 w-full" type="text" name="matricule" :value="old('matricule')" required placeholder="Votre matricule" />
             <x-input-error :messages="$errors->get('matricule')" class="mt-2" />
         </div>
 

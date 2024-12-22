@@ -56,17 +56,20 @@
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mb-3">
                         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                              <h2 class="font-semibold text-xl text-light-800 leading-tight text-center">Decriver votre annonce</h2>
+                             <p class="text-danger text-center"><b class="text-danger ">NB:</b> Modification <strong>Titre</strong> et <strong>Catégorie</strong> non valide !</p>
                             <div class="row mt-3">
                                 <div class="col-md-6 form-group">
-                                <label for="title">titre : <p class="text-danger">Impossible de modifier le titre !</p></label>
+                                <label for="title">titre :</label>
                                 <input type="text" name="title" id="text" value="{{$articles->title}}" class="form-control" readonly>
                                 </div>
                                 <div class=" col-md-6 form-group">
-                                    <label for="category">Choisir une Categorie</label>
+                                    <label for="category">Categorie</label>
                                     <select name="category_id" id="category" class="form-control">
-                                        <option value="">Veuiller choisir une categorie</option>
+                                        <!-- <option value="">{{$articles->category_id}}</option> -->
                                         @foreach($categories as $cat)
+                                        @if($cat->id == $articles->category_id)
                                         <option value="{{$cat->id}}">{{strtoupper($cat->name)}}</option>
+                                        @endif
                                         @endforeach
                                     </select>
                                 </div>

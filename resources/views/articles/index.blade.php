@@ -37,7 +37,7 @@
                     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                         <div class="row">
                             <div class="col-md-12">
-                                <b>Veuillez finaliser votre Abonnement pour publier des articles</b>
+                                <!-- <b>Veuillez finaliser votre Abonnement pour publier des articles</b> -->
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
@@ -53,7 +53,7 @@
                                         </thead>
                                         <tbody>
                                         @foreach($articlesC as $art)
-                                        @if($art->user_id == Auth::user()->id && $art->reponse == 0)
+                                        @if($art->reponse == 0)
                                             <tr>
                                                 <th scope="row"></th>
                                                 <td>
