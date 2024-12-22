@@ -35,10 +35,14 @@ class RegisteredUserController extends Controller
             'prename' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'tel' => ['required', 'string', 'max:20', 'unique:'.User::class],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255','regex:/^[\w.+\-]+@zig\.univ\.sn$/i', 'unique:'.User::class], // email @zig.univ.sn seulement
             'matricule' => ['required', 'string', 'max:9', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
+        // @if(Str::endsWith($phrase, 'le monde'))
+        //     <p>La phrase se termine bien par "le monde".</p>
+        // @endif
 
         $user = User::create([
             'prename' => $request->prename,

@@ -20,10 +20,10 @@ class ArticleController extends Controller
     { 
         $categories = categories::all();
         if(Auth::user()->statut == 'admin') {
-            $articlesA = Articles::all();
+            $articlesA = Articles::orderBy('created_at', 'DESC')->get();
             return view('admin.articles.index',compact('articlesA', 'categories'));
         } else {
-            $articlesC = Articles::all();
+            $articlesC = Articles::where(['user_id'=>Auth::user()->id])->get();
             return view('articles.index',compact('articlesC', 'categories'));
         }
             
@@ -160,7 +160,7 @@ class ArticleController extends Controller
         $articles= articles::FindOrFail($articles);
         $articles->update(['reponse'=> 0]);
         // dd($articles);
-        return redirect()->back()->with('success', 'Article activé avec succès.');
+        return redirect()->back()->with('success', 'Article approuvé avec succès.');
     }
 
     /**
@@ -171,7 +171,7 @@ class ArticleController extends Controller
         $articles= articles::FindOrFail($articles);
         $articles->update(['reponse' => 1]);
         // dd($articles);
-        return redirect()->back()->with('success', 'Article desactivé avec succès.');
+        return redirect()->back()->with('success', 'Article rejeté avec succès.');
     }
 
     /**

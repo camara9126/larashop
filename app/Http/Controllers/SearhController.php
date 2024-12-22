@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\articles;
 use App\Models\categories;
 use Illuminate\Http\Request;
@@ -21,19 +22,26 @@ class SearhController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for searching a article.
      */
-    public function create()
+    public function article(Request $request)
     {
-        //
+        $categorie= categories::all();
+        $article = $request->input('article');
+        $resultat = articles::where('title', 'like', '%'.$article.'%')->get();
+        // dd($resultat);
+        return view('admin.articles.search', compact('categorie','article','resultat'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Show the form for searching a user.
      */
-    public function store(Request $request)
+    public function user(Request $request)
     {
-        //
+        $user = $request->input('user');
+        $resultat = User::where('prename', 'like', '%'.$user.'%')->get();
+        // dd($resultat);
+        return view('admin.users.search', compact('user','resultat'));
     }
 
     /**
