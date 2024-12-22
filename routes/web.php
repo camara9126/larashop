@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 // recherche
 Route::resource('/search', SearhController::class);
+// recherche artile par l'admin 
+Route::get('/searchArticle', [SearhController::class, 'article'])->middleware('auth','verified')->name('search.article');
+// recherche utilisateur par l'admin
+Route::get('/searchUser', [SearhController::class, 'user'])->middleware('auth','verified')->name('search.user');
 
 Route::get('/detail', function () {
     return view('home.detail');
@@ -54,7 +58,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         if(Auth::user()->statut == 'admin')
             return view('dashboard.admin');
         elseif(Auth::user()->statut == 'client')
-            $articlesC= Articles::all();
+            $articlesC= Articles::where(['user_id'=>Auth::user()->id])->get();
             return view('dashboard.client', compact('articlesC'));
 
     })->name('dashboard');
@@ -109,6 +113,10 @@ Route::get('categories/create',[CategoriesController::class, 'create'])->name('c
 
 
 // Payment Paytech 
+Route::get('/abonnement', function () {
+    return view('dashboard.abonnement');
+})->middleware(['auth', 'verified'])->name('abonne');
+
 Route::get('/paiement', [PaymentController::class, 'makePayment'])->middleware(['auth', 'verified'])->name('paiement');
 Route::get('/success', function () {
     return 'Paiement réussi !';
