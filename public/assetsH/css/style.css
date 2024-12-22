@@ -310,6 +310,11 @@
     transition: 0.5s;
     border-radius: 10px 10px 0 0;
 }
+.details img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
 
 .fruite .fruite-item .fruite-img img {
     transition: 0.5s;
@@ -338,6 +343,9 @@
 }
 
 .vesitable .vesitable-item .vesitable-img img {
+    width: 220px; /* redimensionne tous les img en meme largeur */
+    height: 220px; /* redimensionne tous les img en meme hauteur */
+    object-fit: cover;
     transition: 0.5s;
 }
 
