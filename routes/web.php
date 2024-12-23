@@ -2,6 +2,7 @@
 
 use App\Models\articles;
 use App\Models\categories;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearhController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Models\User;
 
 Route::get('/', function () {
     return view('home.index');
@@ -45,7 +47,7 @@ Route::get('/securite', function () {
     });
     
 
-// Liste des Utilisateurs 
+// Liste de tous les Utilisateurs 
 Route::get('/users/all',[RegisteredUserController::class, 'all'])->name('users.all')->middleware(['auth', 'verified']);
 
 // Activer/Desactiver un users
@@ -119,11 +121,32 @@ Route::get('/abonnement', function () {
 
 Route::get('/paiement', [PaymentController::class, 'makePayment'])->middleware(['auth', 'verified'])->name('paiement');
 Route::get('/success', function () {
-    return 'Paiement réussi !';
+
+    $user= User::where('id', Auth::user()->id)->first();
+    $user->update(['paiement' => 1]);
+        // dd($user);
+    return view('dashboard.paiements.success');
+    // return 'Paiement réussi !';
 });
 Route::get('/cancel', function () {
-    return 'Paiement annulé.';
+    
+    return view('dashboard.paiements.cancel');
+    // return 'Paiement annulé.';
 });
+
+Route::post('/ipn-listener', function (Request $request) {
+    // Lire les données envoyées par le prestataire
+    $data = $request->all();
+
+    // Vérifier la signature pour confirmer l'origine (important pour la sécurité)
+    if ($data['signature'] === hash_hmac('sha256', $data['transaction_id'], 'votre_cle_secrete')) {
+
+        return response('IPN reçu et traité', 200);
+    }
+
+    return response('Échec de la validation IPN', 400);
+});
+
 
 require __DIR__.'/auth.php';
 
