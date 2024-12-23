@@ -4,8 +4,12 @@
 <?php
     use Illuminate\Support\Facades\Auth;
 
+    // methode pour calculer la date de fin de 5 jours gratuits
     $dateCreation = Auth::user()->created_at; // Date de création de l'utilisateur
     $dateRestant = $dateCreation->addDays(15); // Ajouter 15 jours
+
+    // fonction pour recupérer le prochain mois de paiement
+    $nextMonthDate = $dateCreation->addMonth();
 ?>
 <x-app-layout>
 
@@ -15,9 +19,15 @@
             </h2>
             <hr><br>
             @if ($dateRestant->isPast())
-                <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('abonne') }}">Abonnez-vous maintenant</a>.</h3>
+            @if(Auth::user()->paiement == 0)
+                <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">
+                    NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('abonne') }}">Abonnez-vous maintenant</a>.
+                </h3>
+            @endif
             @else
-                <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">NB :</i> </b>Votre période d'essai gratuit expire le {{ $dateRestant }} .</h3>
+                <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">
+                    NB :</i> </b>Votre période d'essai gratuit expire le {{ $dateRestant }} .
+                </h3>
             @endif
 
             <hr>

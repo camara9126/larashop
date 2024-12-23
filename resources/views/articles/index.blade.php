@@ -19,7 +19,7 @@
                             {{ __("Articles") }}
                         </h2>
                     </div>
-                    @if(Auth::user()->paiement == 0)
+                    @if(Auth::user()->paiement == 1)
                         <div class="col-lg-3 col-md-6">
                             <a href="{{ route('article.create') }}" class="btn btn-primary">Ajout Article</a>
                         </div>

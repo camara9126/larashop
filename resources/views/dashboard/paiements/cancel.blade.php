@@ -44,9 +44,8 @@
                             <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Paiement de l'abonnement <b>UAS-BC</b></h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="{{route('paiement')}}" class="btn btn-primary">Payer</a>
-                                <a href="#" class="btn btn-danger">Annuler</a>
+                                <p class="card-text"><big class="text-danger">X</big> Vous avez annulé(e) votre paiement !</p>
+                                <a href="{{route('dashboard')}}" class="btn btn-danger">Retour table de bord</a>
                             </div>
                             </div>
                         </div>

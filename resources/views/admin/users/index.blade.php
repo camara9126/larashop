@@ -50,7 +50,7 @@
                                             <tr>
                                                 <td>{{$users->id}}</td>
                                                 <td>
-                                                    @if ($users->paiement == 1)
+                                                    @if ($users->paiement == 0)
                                                         <form action="{{ route('users.activate', $users) }}" method="POST">
                                                             @csrf
                                                             @method('PATCH')

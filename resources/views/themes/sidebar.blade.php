@@ -4,8 +4,13 @@
     <?php
         use Illuminate\Support\Facades\Auth;
 
+        // methode pour calculer la date de fin de 5 jours gratuits
         $dateCreation = Auth::user()->created_at; // Date de création de l'utilisateur
         $dateRestant = $dateCreation->addDays(15); // Ajouter 15 jours
+
+        // fonction pour recupérer le prochain mois de paiement
+        $nextMonthDate = $dateCreation->addMonth();
+           
     ?>
         @if(Auth::user()->statut == "admin")
             <li class="nav-item">
@@ -39,14 +44,16 @@
                     <span class="menu-title">Tableau de bord</span>
                 </a>
             </li>
-            @if ($dateRestant->isPast())
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('abonne')}}">
-                    <span class="icon-bg"><i class="mdi mdi-file menu-icon"></i></span>
-                    <span class="menu-title">Renouvelement</span>
-                </a>
-            </li>
-            @endif
+                @if ($dateRestant->isPast())
+                @if(Auth::user()->paiement == 0)
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('abonne')}}">
+                        <span class="icon-bg"><i class="mdi mdi-file menu-icon"></i></span>
+                        <span class="menu-title">Renouvelement</span>
+                    </a>
+                </li>
+                @endif
+                @endif
             <li class="nav-item">
                 <a class="nav-link" href="{{route('article.index')}}">
                     <span class="icon-bg"><i class="mdi mdi-cart-plus menu-icon"></i></span>
