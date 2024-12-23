@@ -71,7 +71,7 @@ class RegisteredUserController extends Controller
     public function activate($users)
     {
         $users= User::FindOrFail($users);
-        $users->update(['paiement'=> 0]);
+        $users->update(['paiement'=> 1]);
         // dd($users);
         return redirect()->back()->with('success', 'Utilisateur activé avec succès.');
     }
@@ -80,7 +80,7 @@ class RegisteredUserController extends Controller
     public function desactivate($users)
     {
         $users= User::FindOrFail($users);
-        $users->update(['paiement'=> 1]);
+        $users->update(['paiement'=> 0]);
         // dd($users);
         return redirect()->back()->with('success', 'Utilisateur desactivé avec succès.');
     }

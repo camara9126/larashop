@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Services\PayTech;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 
 
 
@@ -16,17 +19,20 @@ class PaymentController extends Controller
         //Crée une instance de PayTech avec les clés de l'API
         $response = new \App\Services\PayTech(env('PAYTECH_API_KEY'), env('PAYTECH_API_SECRET'));
 
+        //creation du ref_command avec la date et le matricule du client
+        $ref_command = Carbon::now()->format('YmdHis').'-'.Auth::user()->matricule;
+
 
         //  $refCommand = 'commande_' . uniqid(); // Génère une référence unique
         $response = $paytech->setQuery([
             'item_name' => 'Abonnement chez UAS-BC',
             'item_price' => 500,
-            'command_name' => 'Commande #1234',
+            'command_name' => ': Abonnement du '.Carbon::now()->format('YmdHis').' pour '.Auth::user()->prename.'-'.Auth::user()->name.' chez UAS-BC',
         ])
-        ->setRefCommand('commande_1234') // Ajoute la référence
+        ->setRefCommand($ref_command) // Ajoute la référence
             ->setNotificationUrl([
-                'success_url' => url('https://uasbc.net/success'),
-                'cancel_url' => url('https://uasbc.net/cancel'),
+                'success_url' => url('/success'),
+                'cancel_url' => url('/cancel'),
                 'ipn_url' => url('https://uasbc.net/ipn'),
             ])
             ->send();
