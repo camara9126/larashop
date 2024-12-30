@@ -12844,6 +12844,12 @@ dl {
         background: #fc5a5a;
         color: #ffffff; }
 
+        .fruite-item .dashboard-img img{
+          width: 180px;
+          height: 180px;
+          object-fit: cover;
+        }
+
 .tab-content {
   border: 1px solid rgba(151, 151, 151, 0.3);
   border-top: 0;
