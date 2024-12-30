@@ -187,5 +187,5 @@
     <!-- Template Javascript -->
     <script src="{{('assetsH/js/main.js')}}"></script>
     </body>
-
+    
 </html>

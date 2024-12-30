@@ -6,7 +6,7 @@
 
     // methode pour calculer la date de fin de 5 jours gratuits
     $dateCreation = Auth::user()->created_at; // Date de création de l'utilisateur
-    $dateRestant = $dateCreation->addDays(15); // Ajouter 15 jours
+    $dateRestant = $dateCreation->addDays(5); // Ajouter 5 jours
 
     // fonction pour recupérer le prochain mois de paiement
     $nextMonthDate = $dateCreation->addMonth();
@@ -17,9 +17,10 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __("Votre Compte") }}
             </h2>
-            <hr><br>
+            
             @if ($dateRestant->isPast())
             @if(Auth::user()->paiement == 0)
+            <hr><br>
                 <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">
                     NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('abonne') }}">Abonnez-vous maintenant</a>.
                 </h3>
@@ -62,17 +63,17 @@
                         <h3 class="font-semibold text-xl-center text-gray-600 leading-tight mb-3">Vos Articles récements consultés</h3>
                         <div class="row g-4">
                             @foreach($articlesC as $art)
-                            @if($art->click_count > 0)
+                            @if($art->click_count > 0 && $art->reponse == 0)
                                 
                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                     
-                                    <div class="rounded position-relative fruite-item">
-                                        <div class="fruite-img">
+                                    <div class="rounded position-relative fruite-item mb-3">
+                                        <div class="dashboard-img">
                                             <img src="{{asset('storage/'.$art->image)}}" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <!-- <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div> -->
                                         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>{{$art->title}}</h4>
+                                            <h4>{!!Str::limit($art->title, 17)!!}</h4>
                                             <!-- <p>{{$art->content}}</p> -->
                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                 <p class="text-dark fs-5 fw-bold mb-1">{{$art->price}} Fcfa</p><br>

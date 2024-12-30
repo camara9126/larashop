@@ -1,3 +1,10 @@
+<?php
+    use App\Models\articles;
+
+
+    $catArticles= articles::where('reponse',0)->get();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -43,81 +50,150 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">Description Article</h1>
+            <h1 class="text-center text-white display-6">Détails Article</h1>
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Pages</a></li>
                 <li class="breadcrumb-item active text-white">Shop Detail</li>
             </ol>
         </div>
-        <!-- Single Page Header End -->
-
+        <!-- Single Page Header End -->       
+              
+        
         <!-- Single Product Start -->
-        <div class="container-fluid details py-5 mt-5 pt-5">
-                        <div class="container py-5">
-                            <div class="row g-4 mb-5">
-                                <div class="col-lg-8 col-xl-9">
-                                    <div class="row g-4">
-                                        <div class="col-lg-8">
-                                            <div class="border rounded">
-                                                <img src="{{ asset('storage/'.$articles->image) }}" class="img-fluid rounded" alt="{{$articles->title}}">
-                                                <legend>{{$articles->title}}</legend>
-                                            </div>                
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <p class="mb-3">Categorie:
-                                                @foreach($categories as $category)
-                                                @if($category->id == $articles->category_id)
-                                                    {{$category->name}}
-                                                @endif
-                                                @endforeach
-                                            </p>
-                                            <div class="d-flex mb-4">
-                                                <i class="fa fa-star text-warning"></i>
-                                                <i class="fa fa-star text-warning"></i>
-                                                <i class="fa fa-star text-warning"></i>
-                                                <i class="fa fa-star text-warning"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <p class="mb-3 border rounded">{{$articles->content}}</p>
-                                            
-                                            
-                                            <h5 class="fw-bold mb-3">{{$articles->price}},00&nbsp;Fcfa</h5>
-                                            
-                                            
-                                            
-                                            <p class="mb-2">Contact :</p>
-                                            <b class="btn btn-outline-danger mb-2" title="contact direct"><i class="fa fa-phone" aria-hidden="true">&nbsp;{{$articles->contact}}</i></b>
-                                            <a href="https://wa.me/{{$articles->contact}}?text=Bonjour, je suis intéressé(e) par ce produit:{{asset('storage/'.$articles->image)}}.
-                                            Nom: {{$articles->title}}, Prix= {{$articles->price}} Fcfa." target="_blank" class="btn btn-outline-success mb-2" title="contact whatsapps"><i class="fa fa-whatsapp"></i></a>
-                                            
-                                        </div>
-
-                                    </div>
+        <div class="container-fluid py-5 mt-5">
+            <div class="container py-5">
+                <div class="row g-4 mb-5">
+                    <div class="col-lg-8 col-xl-9">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="border rounded">
+                                    <a href="#">
+                                    <img src="{{ asset('storage/'.$articles->image) }}" class="img-fluid rounded" alt="{{$articles->title}}">
+                                    </a>
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <h4 class="fw-bold mb-3">{{$articles->title}}</h4>
+                                <p class="mb-3">Categorie:
+                                    @foreach($categories as $category)
+                                    @if($category->id == $articles->category_id)
+                                        {{$category->name}}
+                                    @endif
+                                    @endforeach
+                                </p>
+                                <h5 class="fw-bold mb-3">{{$articles->price}},00 Fcfa</h5>
+                                <div class="d-flex mb-4">
+                                    <i class="fa fa-star text-secondary"></i>
+                                    <i class="fa fa-star text-secondary"></i>
+                                    <i class="fa fa-star text-secondary"></i>
+                                    <i class="fa fa-star text-secondary"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <p class="mb-4">{{$articles->content}}.</p>
+                                <!-- <p class="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish</p> -->
+                                <!-- <div class="input-group quantity mb-5" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-minus rounded-circle bg-light border" >
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm text-center border-0" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div> -->
+                                <p class="mb-2">Contact :</p>
+                                <b class="btn btn-outline-danger mb-2" title="contact direct"><i class="fa fa-phone" aria-hidden="true">&nbsp;{{$articles->contact}}</i></b>
+                                <a href="https://wa.me/{{$articles->contact}}?text=Bonjour, je suis intéressé(e) par ce produit:{{asset('storage/'.$articles->image)}}.
+                                    Nom: {{$articles->title}}, Prix= {{$articles->price}} Fcfa." target="_blank" class="btn btn-outline-success mb-2" title="contact whatsapps"><i class="fa fa-whatsapp"></i>
+                                </a>
+                            </div>
+                            <div class="col-lg-12">
+                                <nav>
+                                    <div class="nav nav-tabs mb-3">
+                                        <button class="nav-link active border-white border-bottom-0" type="button" role="tab"
+                                            id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
+                                            aria-controls="nav-about" aria-selected="true">Description</button>                                        
+                                    </div>
+                                </nav>
+                                <div class="tab-content mb-5">
+                                    <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                        <p>{{$articles->content}} </p>                                                                                
+                                    </div>                                                                        
+                                </div>
+                            </div>                           
                         </div>
                     </div>
-        <!-- Single Product End --> 
-              
+                    <div class="col-lg-4 col-xl-3">
+                        <div class="row g-4 fruite">
+                            <div class="col-lg-12">                                
+                                <div class="mb-4">
+                                    <h4>Categories</h4>
+                                    <ul class="list-unstyled fruite-categorie">
+                                    @foreach($categories as $category)
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href="#"><i class="fas fa-shopping-bag me-2"></i>{{$category->name}}</a>                                                
+                                            </div>
+                                        </li>
+                                    @endforeach                                                                                
+                                    </ul>
+                                </div>
+                            </div>                                                       
+                        </div>
+                    </div>
+                </div>
+                <h1 class="fw-bold mb-0">Produits alliés</h1>
+                <div class="vesitable">
+                    <div class="owl-carousel vegetable-carousel justify-content-center">
+                    @foreach($catArticles as $parcat)                      
+                    @if($parcat->category_id == $articles->category_id)                 
+                        <div class="border border-primary rounded position-relative vesitable-item">
+                            <div class="vesitable-img">
+                                <img src="{{asset('storage/'.$parcat->image)}}" class="img-fluid w-100 rounded-top" alt="{{$parcat->title}}">
+                            </div>
+                            <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
+                               
+                            </div>
+                            <div class="p-4 rounded-bottom">
+                                <h5>{!!Str::limit($parcat->title, 17)!!}</h5>
+                                <p>{{$parcat->stock}} en stock</p>
+                                <div class="d-flex justify-content-between flex-lg-wrap">
+                                    <p class="text-dark fs-5 fw-bold mt-0">{{$parcat->price}} FCFA</p>
+                                    <a href="{{route('article.view', $parcat->slug)}}" class="btn border border-secondary rounded-pill px-3 text-primary">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                    </a>
+                                </div>
+                            </div>
+                        </div> 
+                    @endif                             
+                    @endforeach                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single Product End -->
             
-    <!-- Footer Start -->
+        <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5">
         <div class="container py-5">
             <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(226, 175, 24, 0.5) ;">
                 <div class="row g-4">
-                    <div class="col-lg-3">
+                    <div class="col-lg-9">
                         <a href="#">
-                            <h1 class="text-primary mb-0">Fruitables</h1>
-                            <p class="text-secondary mb-0">Fresh products</p>
+                            <h1 class="text-primary mb-0">UAS-BC</h1>
+                            <p class="text-secondary mb-0">Commander en ligne, payer sur place</p>
                         </a>
                     </div>
-                    <div class="col-lg-6">
+                    <!-- <div class="col-lg-6">
                         <div class="position-relative mx-auto">
                             <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" placeholder="Your Email">
                             <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Subscribe Now</button>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-3">
                         <div class="d-flex justify-content-end pt-3">
                             <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter"></i></a>
@@ -134,7 +210,7 @@
                         <h4 class="text-light mb-3">Why People Like us!</h4>
                         <p class="mb-4">typesetting, remaining essentially unchanged. It was 
                             popularised in the 1960s with the like Aldus PageMaker including of Lorem Ipsum.</p>
-                        <a href="" class="btn border-secondary py-2 px-4 rounded-pill text-primary">Read More</a>
+                        <a href="{{route('apropos')}}" class="btn border-secondary py-2 px-4 rounded-pill text-primary">En savoir plus</a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

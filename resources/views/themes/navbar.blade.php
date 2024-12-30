@@ -23,10 +23,18 @@
 
                         @if ($dateRestant->isPast())
                         @if(Auth::user()->paiement == 0)
-                            <marquee behavior="" direction="left"><h3 class="d-flex align-items-center mt-3"><b><i class="text-danger">NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('abonne') }}">Abonnez-vous maintenant</a>.</h3></marquee>
+                            <marquee behavior="" direction="left">
+                                <h3 class="d-flex align-items-center mt-3"><b><i class="text-danger">
+                                    NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('abonne') }}">Abonnez-vous maintenant</a>.
+                                </h3>
+                            </marquee>
                         @endif
                         @else
-                            <marquee behavior="" direction="left"><h3 class="d-flex align-items-center mt-3"><b><i class="text-danger">NB :</i> </b>Votre période d'essai gratuit expire le {{ $dateRestant }} .</h3></marquee>
+                            <marquee behavior="" direction="left">
+                                <h3 class="d-flex align-items-center mt-3"><b><i class="text-danger">
+                                    NB :</i> </b>Votre période d'essai gratuit expire le {{ $dateRestant }} .
+                                </h3>
+                            </marquee>
                         @endif
  
                 @elseif(Auth::user()->statut == 'admin')

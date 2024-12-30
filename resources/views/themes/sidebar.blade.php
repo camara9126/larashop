@@ -6,7 +6,7 @@
 
         // methode pour calculer la date de fin de 5 jours gratuits
         $dateCreation = Auth::user()->created_at; // Date de création de l'utilisateur
-        $dateRestant = $dateCreation->addDays(15); // Ajouter 15 jours
+        $dateRestant = $dateCreation->addDays(5); // Ajouter 5 jours
 
         // fonction pour recupérer le prochain mois de paiement
         $nextMonthDate = $dateCreation->addMonth();
@@ -44,7 +44,7 @@
                     <span class="menu-title">Tableau de bord</span>
                 </a>
             </li>
-                @if ($dateRestant->isPast())
+                
                 @if(Auth::user()->paiement == 0)
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('abonne')}}">
@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 @endif
-                @endif
+            
             <li class="nav-item">
                 <a class="nav-link" href="{{route('article.index')}}">
                     <span class="icon-bg"><i class="mdi mdi-cart-plus menu-icon"></i></span>

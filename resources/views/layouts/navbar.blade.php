@@ -7,8 +7,8 @@
                         <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a></small>
                     </div>
                     <div class="top-link pe-2">
-                        <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
-                        <a href="#" class="text-white"><small class="text-white mx-2">Terms of Use</small>/</a>
+                        <a href="{{route('apropos')}}" class="text-white"><small class="text-white mx-2">A propos</small>/</a>
+                        <a href="{{route('politique')}}" class="text-white"><small class="text-white mx-2">Politique de Confidentialité</small>/</a>
                         <a href="#" class="text-white"><small class="text-white ms-2">Sales and Refunds</small></a>
                     </div>
                 </div>
@@ -22,8 +22,8 @@
                     <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                         <div class="navbar-nav mx-auto">
                             <a href="/" class="nav-item nav-link active">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Shop</a>
-                            <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
+                            <!-- <a href="shop.html" class="nav-item nav-link">Shop</a> -->
+                            <!-- <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a> -->
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categorie</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
