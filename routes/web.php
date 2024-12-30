@@ -32,13 +32,13 @@ Route::get('/detail', function () {
 Route::get('/apropos', function () {
     $categories= categories::all();
     return view('pages.apropos', compact('categories'));
-});
+})->name('apropos');
 
 // Notre politique et condition 
 Route::get('/politique', function () {
     $categories= categories::all();
     return view('pages.politique', compact('categories'));
-});
+})->name('politique');
 
 // Mesure securite 
 Route::get('/securite', function () {
