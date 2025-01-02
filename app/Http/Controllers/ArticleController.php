@@ -84,7 +84,7 @@ class ArticleController extends Controller
      */
     public function show($articles)
     {
-        $users= User::all();
+        $users= User::where('statut','client')->get();
         $articles= Articles::findOrFail($articles);
         $categories = categories::all();
 
@@ -175,14 +175,14 @@ class ArticleController extends Controller
     }
 
     /**
-     * visualisation des details d'un article.
+     * visualisation de tous les articles d'un user.
      */
-    public function view($slug)
-    {
-        $articles= articles::where('slug', $slug)->get();
-        $categorie= categories::all();
-        $articles = Articles::orderBy('click_count', 'desc')->take(4)->get(); // Limite à 4 articles récents
-        // dd($articles);
-        return view('home.detail', compact('articles','categories'));
+    public function articles($id)
+    {        
+        $articles= articles::where('user_id', $id)->get();
+        $user= User::findOrFail($id);
+        $categories= categories::all();        
+        // dd($user);
+        return view('admin.users.show', compact('articles','categories','user'));
     }
 }

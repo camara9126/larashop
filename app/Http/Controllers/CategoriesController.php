@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\articles;
 use App\Models\categories;
 use Illuminate\Http\Request;
 
@@ -55,9 +56,12 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $categorie= categories::findOrFail($id);
+        $articles= articles::where('reponse',0)->get();
+        // dd($categorie);
+        return view('home.categorie', compact('articles','categorie'));
     }
 
     /**

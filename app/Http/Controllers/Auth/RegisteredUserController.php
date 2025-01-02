@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
+use App\Models\articles;
 use App\Models\categories;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -64,9 +65,22 @@ class RegisteredUserController extends Controller
     // Liste des Users
     public function all()
     {
-        $users= User::where(['statut'=>'client'])->get();
-        return view('admin.users.index', compact('users'));
+        $users= User::where(['statut'=>'client'])->get();        
+        // dd($users);
+        return view('admin.users.index', compact('users',));
     }
+
+    // Liste de reglement users
+    public function userReglement() {
+        // Obtenir la date d'aujourd'hui
+        $today = Carbon::now()->format('d/m'); // Format jour et mois
+
+        // Récupérer les utilisateurs inscrits sur le meme jour et mois qu'aujourd'hui
+        $userDay = User::whereRaw("DATE_FORMAT(created_at, '%d/%m') = ?", [$today])->get();
+
+        return view('admin.users.reglement', compact('userDay'));
+    }
+
     // Activation users
     public function activate($users)
     {
