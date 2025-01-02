@@ -17,16 +17,7 @@ Route::get('/', function () {
     return view('home.index');
 });
 
-// recherche
-Route::resource('/search', SearhController::class);
-// recherche artile par l'admin 
-Route::get('/searchArticle', [SearhController::class, 'article'])->middleware('auth','verified')->name('search.article');
-// recherche utilisateur par l'admin
-Route::get('/searchUser', [SearhController::class, 'user'])->middleware('auth','verified')->name('search.user');
 
-Route::get('/detail', function () {
-    return view('home.detail');
-});
 
 // A propos de nous 
 Route::get('/apropos', function () {
@@ -40,15 +31,33 @@ Route::get('/politique', function () {
     return view('pages.politique', compact('categories'));
 })->name('politique');
 
+// Notre contact
+Route::get('/contact', function () {
+    $categories= categories::all();
+    return view('pages.contact', compact('categories'));
+})->name('contact');
+
 // Mesure securite 
 Route::get('/securite', function () {
     $categories= categories::all();
     return view('pages.securite', compact('categories'));
     });
-    
+
+// recherche
+Route::resource('/search', SearhController::class);
+// recherche artile par l'admin 
+Route::get('/searchArticle', [SearhController::class, 'article'])->middleware('auth','verified')->name('search.article');
+// recherche utilisateur par l'admin
+Route::get('/searchUser', [SearhController::class, 'user'])->middleware('auth','verified')->name('search.user');
+
+// deatail d'un article
+Route::get('/detail', function () {
+    return view('home.detail');
+});    
 
 // Liste de tous les Utilisateurs 
 Route::get('/users/all',[RegisteredUserController::class, 'all'])->name('users.all')->middleware(['auth', 'verified']);
+Route::get('/users/rgm',[RegisteredUserController::class, 'userReglement'])->name('users.rgm')->middleware(['auth', 'verified']);
 
 // Activer/Desactiver un users
 Route::patch('/users/{users}/activate', [RegisteredUserController::class, 'activate'])->name('users.activate')->middleware(['auth', 'verified']);
@@ -75,6 +84,7 @@ Route::middleware('auth')->group(function () {
 // CRUD pour les Articles
 Route::resource('/article', ArticleController::class)->middleware(['auth', 'verified']);
 Route::get('/article/{articles}',[ArticleController::class, 'show'])->name('article.show')->middleware(['auth', 'verified']);
+Route::get('/article/{articles}/articles',[ArticleController::class, 'articles'])->name('article.articles')->middleware(['auth', 'verified']);
 Route::get('/article/{articles}',[ArticleController::class, 'destroy'])->name('article.destroy')->middleware(['auth', 'verified']);
 Route::get('/article/{articles}/edit',[ArticleController::class, 'edit'])->name('article.edit')->middleware(['auth', 'verified']);
 Route::post('/article/{articles}',[ArticleController::class, 'update'])->name('article.update')->middleware(['auth', 'verified']);
@@ -84,8 +94,10 @@ Route::get('/view/{articles}', function ($slug) {
     $articles= articles::where('slug', $slug)->firstOrFail();
     $articles->increment('click_count');
     $categories= categories::all();
+    $catArticles= articles::where('reponse',0)->get();
+    $vendeur= User::where('statut','client')->get();
     // dd($articles);
-    return view('home.detail', compact('articles','categories'));
+    return view('home.detail', compact('articles','categories','catArticles','vendeur'));
 })->name('article.view');
 
 // activer/desactiver un article 
@@ -112,6 +124,7 @@ Route::get('/editer', function () {
 // Categories     
 Route::resource('/categories', CategoriesController::class)->middleware(['auth', 'verified']);
 Route::get('categories/create',[CategoriesController::class, 'create'])->name('categories.create')->middleware(['auth', 'verified']);
+Route::get('categories/{id}',[CategoriesController::class, 'show'])->name('categories.show');
 
 
 // Payment Paytech 
