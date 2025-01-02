@@ -2,23 +2,13 @@
 @include('themes.navbar')
 @include('themes.sidebar')
 
-    @if(Session::has('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ Session::get('success') }}
-                </div>
-            @elseif(Session::has('danger'))
-                <div class="alert alert-danger" role="alert">
-                    {{ Session::get('danger') }}
-                </div>
-    @endif
-
 
     <x-app-layout>
             <x-slot name="header">
                 <div class="row">
                     <div class="col-lg-9 col-md-6">
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                            {{ __("Articles") }}
+                            Articles ({{count($articlesA)}})
                         </h2>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -32,7 +22,7 @@
                     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="table-responsive">
+                                <div class="table-responsive">                                    
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>

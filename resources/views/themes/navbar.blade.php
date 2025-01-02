@@ -70,22 +70,18 @@
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
                         aria-expanded="false">
-                        <!-- <div class="nav-profile-img">
-                            <img src="themes/images/faces/face28.png" alt="image">
-                        </div> -->
-                        <h5 class="mb-1 text-secondary">
-                            {{ Auth::user()->name }} 
-                        </h5>
-                        <div class="nav-profile-text">
-                            
-                        </div>
+                        <div class="nav-profile-img">
+                            <img src="{{asset('assetsH/img/avatar.jpg')}}" alt="image">
+                        </div>                        
+                        <!-- <div class="nav-profile-text">
+                           {{ Auth::user()->name }}
+                        </div>  -->
                     </a>
                     <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm"
                         aria-labelledby="profileDropdown" data-x-placement="bottom-end">
-                        <!-- <div class="p-3 text-center bg-primary">
-                            <img class="img-avatar img-avatar48 img-avatar-thumb" src="themes/images/faces/face28.png"
-                                alt="">
-                        </div> -->
+                        <div class="p-3 text-center bg-primary">
+                            <span class="bg-white d-center" style="width: auto; border-radius: 100%"><b>{{Auth::user()->prename[0].Auth::user()->name[0]}}</b></span>
+                        </div>
                         <div class="p-2">
                             <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"
                                 href="{{route('profile.edit')}}">

@@ -1,10 +1,3 @@
-<?php
-    use App\Models\articles;
-
-
-    $catArticles= articles::where('reponse',0)->get();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -50,12 +43,7 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">Détails Article</h1>
-            <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item active text-white">Shop Detail</li>
-            </ol>
+            <h1 class="text-center text-white display-6">Détails Article</h1>           
         </div>
         <!-- Single Page Header End -->       
               
@@ -68,9 +56,11 @@
                         <div class="row g-4">
                             <div class="col-lg-6">
                                 <div class="border rounded">
-                                    <a href="#">
-                                    <img src="{{ asset('storage/'.$articles->image) }}" class="img-fluid rounded" alt="{{$articles->title}}">
-                                    </a>
+                                    <div class="details">
+                                        <a href="#">
+                                            <img src="{{ asset('storage/'.$articles->image) }}" class="img-fluid rounded" alt="{{$articles->title}}">
+                                        </a>
+                                    </div>                                    
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -91,24 +81,11 @@
                                     <i class="fa fa-star"></i>
                                 </div>
                                 <p class="mb-4">{{$articles->content}}.</p>
-                                <!-- <p class="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish</p> -->
-                                <!-- <div class="input-group quantity mb-5" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-minus rounded-circle bg-light border" >
-                                            <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control form-control-sm text-center border-0" value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-plus rounded-circle bg-light border">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div> -->
-                                <p class="mb-2">Contact :</p>
+                               
+                                <p class="mb-2">Contacter via :</p>
                                 <b class="btn btn-outline-danger mb-2" title="contact direct"><i class="fa fa-phone" aria-hidden="true">&nbsp;{{$articles->contact}}</i></b>
-                                <a href="https://wa.me/{{$articles->contact}}?text=Bonjour, je suis intéressé(e) par ce produit:{{asset('storage/'.$articles->image)}}.
-                                    Nom: {{$articles->title}}, Prix= {{$articles->price}} Fcfa." target="_blank" class="btn btn-outline-success mb-2" title="contact whatsapps"><i class="fa fa-whatsapp"></i>
+                                <a href="https://wa.me/{{$articles->contact}}?text=Bonjour, je suis intéressé(e) par ce produit:{{asset('storage/'.$articles->image)}}. Nom: {{$articles->title}}, Prix= {{$articles->price}} Fcfa." target="_blank" class="btn btn-outline-success mb-2" title="contact whatsapps">
+                                    <i class="fa fa-whatsapp"></i>
                                 </a>
                             </div>
                             <div class="col-lg-12">
@@ -116,13 +93,41 @@
                                     <div class="nav nav-tabs mb-3">
                                         <button class="nav-link active border-white border-bottom-0" type="button" role="tab"
                                             id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
-                                            aria-controls="nav-about" aria-selected="true">Description</button>                                        
+                                            aria-controls="nav-about" aria-selected="true">Description</button>
+                                        <button class="nav-link border-white border-bottom-0" type="button" role="tab"
+                                        id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
+                                        aria-controls="nav-mission" aria-selected="false">Vendeur</button>                                        
                                     </div>
                                 </nav>
                                 <div class="tab-content mb-5">
                                     <div class="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
                                         <p>{{$articles->content}} </p>                                                                                
-                                    </div>                                                                        
+                                    </div>
+                                    <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+                                    @foreach($vendeur as $ven)
+                                    @if($ven->id == $articles->user_id)
+                                        <div class="d-flex">
+                                            <img src="{{asset('assetsH/img/avatar.jpg')}}" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
+                                            <div class="">
+                                                <p class="mb-2" style="font-size: 14px;"></p>
+                                                <div class="d-flex justify-content-between">
+                                                    <h5>{{ucwords($ven->prename)}}&nbsp;{{ucwords($ven->name)}}</h5>
+                                                    <div class="d-flex mb-3">
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star text-secondary"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <p>Client chez <b>UAS-BC</b>. Abonnné(e) le {{$ven->created_at->format('d/m/y')}}. Contact: {{$ven->tel}}.<br>
+                                                    Email: {{$ven->email}}
+                                                </p>
+                                            </div>
+                                        </div> 
+                                    @endif
+                                    @endforeach 
+                                    </div>                                                                      
                                 </div>
                             </div>                           
                         </div>
@@ -136,7 +141,10 @@
                                     @foreach($categories as $category)
                                         <li>
                                             <div class="d-flex justify-content-between fruite-name">
-                                                <a href="#"><i class="fas fa-shopping-bag me-2"></i>{{$category->name}}</a>                                                
+                                                <a href="#">
+                                                    <img src="{{asset('storage/'.$category->image)}}" style="width: 25px; border-radius: 100%;" alt="">
+                                                    {{$category->name}}
+                                                </a>                                                
                                             </div>
                                         </li>
                                     @endforeach                                                                                
@@ -146,6 +154,7 @@
                         </div>
                     </div>
                 </div>
+                <hr>
                 <h1 class="fw-bold mb-0">Produits alliés</h1>
                 <div class="vesitable">
                     <div class="owl-carousel vegetable-carousel justify-content-center">
@@ -154,10 +163,7 @@
                         <div class="border border-primary rounded position-relative vesitable-item">
                             <div class="vesitable-img">
                                 <img src="{{asset('storage/'.$parcat->image)}}" class="img-fluid w-100 rounded-top" alt="{{$parcat->title}}">
-                            </div>
-                            <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
-                               
-                            </div>
+                            </div>                        
                             <div class="p-4 rounded-bottom">
                                 <h5>{!!Str::limit($parcat->title, 17)!!}</h5>
                                 <p>{{$parcat->stock}} en stock</p>

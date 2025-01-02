@@ -37,6 +37,12 @@
                     <span class="menu-title">Clients</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('users.rgm')}}">
+                    <span class="icon-bg"><i class="mdi mdi-cash menu-icon"></i></span>
+                    <span class="menu-title">Reglement Utilisateurs</span>
+                </a>
+            </li>
         @else
             <li class="nav-item">
                 <a class="nav-link" href="{{route('dashboard')}}">
@@ -87,7 +93,7 @@
         </li> -->        
         <li class="nav-item documentation-link">
             <a class="nav-link" data-toggle="collapse" href="#client" aria-expanded="false" aria-controls="client">
-                <span class="icon-bg"><i class="mdi mdi-help menu-icon"></i></span>
+                <span class="icon-bg"><i class="mdi mdi-phone menu-icon"></i></span>
                 <span class="menu-title">Nos Supports</span>
                 <i class="menu-arrow"></i>
             </a>

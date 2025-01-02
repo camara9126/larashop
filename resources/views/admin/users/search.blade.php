@@ -2,24 +2,17 @@
 @include('themes.navbar')
 @include('themes.sidebar')
 
-    @if(Session::has('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ Session::get('success') }}
-                </div>
-            @elseif(Session::has('danger'))
-                <div class="alert alert-danger" role="alert">
-                    {{ Session::get('danger') }}
-                </div>
-    @endif
-
 
     <x-app-layout>
             <x-slot name="header">
                 <div class="row">
-                    <div class="col-lg-10 col-md-10">
+                    <div class="col-lg-9 col-md-6">
                         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                             {{ __("Utilisateur Recherché") }}
                         </h2>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <a href="{{ route('users.all') }}" class="btn btn-danger"> Retour</a>
                     </div>
                 </div>
             </x-slot>
@@ -41,6 +34,7 @@
                                                 <th scope="col">Matricule</th>
                                                 <th scope="col">Contact</th>
                                                 <th scope="col">Date Creation</th>
+                                                <th scope="col">Articles</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -69,6 +63,9 @@
                                                 <td>{{$res->matricule}}</td>
                                                 <td>{{$res->tel}}</td>
                                                 <td>{{$res->created_at}}</td>
+                                                <td>
+                                                    <a href="{{route('article.articles', $res->id)}}" class="btn btn-outline-warning" title="consulter"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>

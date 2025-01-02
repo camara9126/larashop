@@ -25,15 +25,15 @@
                             <!-- <a href="shop.html" class="nav-item nav-link">Shop</a> -->
                             <!-- <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a> -->
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categorie</a>
+                                <a href="#" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown">Categorie</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                     @foreach($categories as $cat)
-                                    <a href="cart.html" class="dropdown-item">{{$cat->name}}</a>
+                                        <a href="{{route('categories.show',['id'=>$cat->id]) }}" class="dropdown-item">{{$cat->name}}</a>
                                     @endforeach
                                     <!-- <a href="404.html" class="dropdown-item">404 Page</a> -->
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="d-flex m-3 me-0">
                             <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
