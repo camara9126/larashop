@@ -45,6 +45,7 @@
                                                 <th scope="col">#</th>
                                                 <th scope="col">Image</th>
                                                 <th scope="col">Titre</th>
+                                                <th scope="col">Prix</th>
                                                 <th scope="col">Categorie</th>
                                                 <th scope="col">Stock</th>
                                                 <th scope="col">Date Creation</th>
@@ -53,13 +54,25 @@
                                         </thead>
                                         <tbody>
                                         @foreach($articlesC as $art)
-                                        @if($art->reponse == 0)
                                             <tr>
-                                                <th scope="row"></th>
+                                                <th scope="row">
+                                                    @if ($art->reponse == 1)
+                                                        <form action="{{ route('paiement', $art->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('PATCH')
+                                                            <button type="submit" class="btn btn-danger" title="impayé"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                        </form>
+                                                    @else
+                                                        <form action="" method="">                                                            
+                                                            <button type="" class="btn btn-success" title="payé"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                        </form>
+                                                    @endif
+                                                </th>
                                                 <td>
                                                     <img src="{{asset('storage/'.$art->image)}}" alt="{{$art->title}}">
                                                 </td>
                                                 <td>{{$art->title}}</td>
+                                                <td>{{$art->price}}</td>
                                                 <td>
                                                     @foreach($categories as $cat)
                                                     @if($cat->id == $art->category_id)
@@ -82,9 +95,7 @@
                                                     <!-- <a href="{{route('article.destroy', $art->id)}}" class="btn btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a> -->
                                                 
                                                 </td>
-                                            </tr>
-                                        @endif
-                                        
+                                            </tr>                                        
                                         @endforeach
                                         </tbody>
                                     </table>

@@ -45,7 +45,7 @@
                             <div class="card-body text-center">
                                 <h5 class="card-title">Paiement de l'abonnement <b>UAS-BC</b></h5>
                                 <p class="card-text"><big class="text-danger">X</big> Vous avez annulé(e) votre paiement !</p>
-                                <a href="{{route('dashboard')}}" class="btn btn-warning">Retour table de bord</a>
+                                <a href="{{route('article.index')}}" class="btn btn-warning">Retour table de bord</a>
                             </div>
                             </div>
                         </div>

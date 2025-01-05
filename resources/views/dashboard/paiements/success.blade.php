@@ -44,8 +44,8 @@
                             <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Paiement de l'abonnement <b>UAS-BC</b></h5>
-                                <p class="card-text">Votre compte est maintenant actif. Merci de nous faire confiance !</p>
-                                <a href="{{route('dashboard')}}" class="btn btn-warning">Retour table de bord</a>
+                                <p class="card-text">Votre article est maintenant actif. Merci de nous faire confiance !</p>
+                                <a href="{{route('article.index')}}" class="btn btn-warning">Retour table de bord</a>
                             </div>
                             </div>
                         </div>

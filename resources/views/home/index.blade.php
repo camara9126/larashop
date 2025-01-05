@@ -54,15 +54,15 @@
         <div class="container-fluid py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row g-5 align-items-center">
-                    <div class="col-md-12 col-lg-7">
-                        <h4 class="mb-3 text-secondary">100% Organic Foods</h4>
+                    <div class="col-md-12 col-lg-5">
+                        <h4 class="mb-3 text-secondary">Bienvenue Chez Vous !</h4>
                         <h1 class="mb-5 display-3 text-primary">Organic Veggies & Fruits Foods</h1>
-                        <div class="position-relative mx-auto">
+                        <!-- <div class="position-relative mx-auto">
                             <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number" placeholder="Search">
                             <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Submit Now</button>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="col-md-12 col-lg-5">
+                    <div class="col-md-12 col-lg-7">
                         <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                             <div class="carousel-inner" role="listbox">
                                 <div class="carousel-item active rounded">
@@ -91,7 +91,7 @@
 
 
         <!-- Featurs Section Start -->
-        <div class="container-fluid featurs py-5">
+        <!-- <div class="container-fluid featurs py-5">
             <div class="container py-5">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3">
@@ -140,12 +140,170 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Featurs Section End -->
 
 
-        <!-- Fruits Shop Start-->
-        <div class="container-fluid fruite py-5">
+        
+
+        <!-- Vesitable Shop Start-->
+        <div class="container-fluid vesitable py-5 mb-1">
+            <div class="container py-5">
+                <h1 class="mb-0">Fresh Organic Vegetables</h1>
+                <div class="owl-carousel vegetable-carousel justify-content-center">
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Parsely</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-1">$4.99 / kg</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{asset('assetsH/img/vegetable-item-1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Parsely</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-1">$4.99 / kg</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{asset('assetsH/img/vegetable-item-3.jpg')}}" class="img-fluid w-100 rounded-top bg-light" alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Banana</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-1">$7.99 / kg</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{asset('assetsH/img/vegetable-item-4.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Bell Papper</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-1">$7.99 / kg</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{asset('assetsH/img/vegetable-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Potatoes</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-1">$7.99 / kg</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Parsely</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-1">$7.99 / kg</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye  me-2 text-primary"></i> Consuler</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{asset('assetsH/img/vegetable-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Potatoes</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-1">$7.99 / kg</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye  me-2 text-primary"></i> Consuler</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
+                        <div class="p-4 rounded-bottom">
+                            <h4>Parsely</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mb-1">$7.99 / kg</p>
+                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye  me-2 text-primary"></i> Consuler</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Vesitable Shop End -->
+
+        <!-- All articles Start-->
+        <div class="container-fluid vesitable py-5 mb-1">
+            <div class="container py-5">
+                <h1 class="mb-0">Tous Les Articles</h1>
+                <div class="owl-carousel vegetable-carousel justify-content-center">                   
+                    @foreach($articles as $art)                    
+                    <div class="border border-primary rounded position-relative vesitable-item">
+                        <div class="vesitable-img">
+                            <img src="{{asset('storage/'.$art->image)}}" class="img-fluid w-100 rounded-top" alt="{{$art->title}}">
+                        </div>
+                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
+                            @foreach($categories as $cat)
+                            @if($art->category_id == $cat->id)
+                                {{$cat->name}}
+                            @endif
+                            @endforeach
+                        </div>
+                        <div class="p-4 rounded-bottom">
+                            <h5>{!!Str::limit($art->title, 10)!!}</h5>
+                            <p>{!!Str::limit($art->content, 50)!!}</p>
+                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                <p class="text-dark fs-5 fw-bold mt-0">{{$art->price}} FCFA</p>
+                                <a href="{{route('article.view', $art->slug)}}" class="btn border border-secondary rounded-pill px-3 text-primary">
+                                    <i class="fa fa-eye  me-2 text-primary"></i> Consuler
+                                </a>
+                            </div>
+                        </div>
+                    </div>                  
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <!-- All articles End -->
+
+        <!-- Selection par categorie Start-->
+        <div class="container-fluid fruite py-5 mb-1">
             <div class="container py-5">
                 <div class="tab-class text-center">
                     <div class="row g-4">
@@ -188,10 +346,10 @@
                                                     @endforeach
                                                 </div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{!!Str::limit($id->title, 15)!!}</h4>
-                                                    <p>{{$id->stock}} en stock</p>
+                                                    <h4>{!!Str::limit($id->title, 10)!!}</h4>
+                                                    <p>{!!Str::limit($id->content, 50)!!}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">{{$id->price}} FCFA</p>
+                                                        <p class="text-dark fs-5 fw-bold mb-1">{{$id->price}} FCFA</p>
                                                         <a href="{{route('article.view', $id->slug)}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye  me-2 text-primary"></i> Consulter</a>
                                                     </div>
                                                 </div>
@@ -215,10 +373,10 @@
                                                 </div>
                                                 <!-- <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div> -->
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{!!Str::limit($id->title, 15)!!}</h4>
-                                                    <p>{{$id->stock}} en stock</p>
+                                                    <h4>{!!Str::limit($id->title, 10)!!}</h4>
+                                                    <p>{!!Str::limit($id->content, 50)!!}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">{{$id->price}} FCFA</p>
+                                                        <p class="text-dark fs-5 fw-bold mb-1">{{$id->price}} FCFA</p>
                                                         <a href="{{route('article.view', $id->slug)}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye  me-2 text-primary"></i> Consuler</a>
                                                     </div>
                                                 </div>
@@ -243,10 +401,10 @@
                                                 </div>
                                                 <!-- <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div> -->
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{!!Str::limit($id->title, 15)!!}</h4>
-                                                    <p>{{$id->stock}} en stock</p>
+                                                    <h4>{!!Str::limit($id->title, 10)!!}</h4>
+                                                    <p>{!!Str::limit($id->content, 50)!!}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">{{$id->price}} FCFA</p>
+                                                        <p class="text-dark fs-5 fw-bold mb-1">{{$id->price}} FCFA</p>
                                                         <a href="{{route('article.view', $id->slug)}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
                                                     </div>
                                                 </div>
@@ -271,10 +429,10 @@
                                                 </div>
                                                 <!-- <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div> -->
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{!!Str::limit($id->title, 15)!!}</h4>
-                                                    <p>{{$id->stock}} en stock</p>
+                                                    <h4>{!!Str::limit($id->title, 10)!!}</h4>
+                                                    <p>{!!Str::limit($id->content, 50)!!}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">{{$id->price}} FCFA</p>
+                                                        <p class="text-dark fs-5 fw-bold mb-1">{{$id->price}} FCFA</p>
                                                         <a href="{{route('article.view', $id->slug)}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fas-eye me-2 text-primary"></i> Consulter</a>
                                                     </div>
                                                 </div>
@@ -299,10 +457,10 @@
                                                 </div>
                                                 <!-- <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Fruits</div> -->
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>{!!Str::limit($id->title, 15)!!}</h4>
-                                                    <p>{{$id->stock}} en stock</p>
+                                                    <h4>{!!Str::limit($id->title, 10)!!}</h4>
+                                                    <p>{!!Str::limit($id->content, 50)!!}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">{{$id->price}} FCFA</p>
+                                                        <p class="text-dark fs-5 fw-bold mb-1">{{$id->price}} FCFA</p>
                                                         <a href="{{route('article.view', $id->slug)}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
                                                     </div>
                                                 </div>
@@ -318,180 +476,7 @@
                 </div>      
             </div>
         </div>
-        <!-- Fruits Shop End-->
-
-        <!-- Vesitable Shop Start-->
-        <div class="container-fluid vesitable py-5">
-            <div class="container py-5">
-                <h1 class="mb-0">Fresh Organic Vegetables</h1>
-                <div class="owl-carousel vegetable-carousel justify-content-center">
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-1.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-3.jpg')}}" class="img-fluid w-100 rounded-top bg-light" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4>Banana</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-4.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4>Bell Papper</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4>Potatoes</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye me-2 text-primary"></i> Consuler</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye  me-2 text-primary"></i> Consuler</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-5.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4>Potatoes</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye  me-2 text-primary"></i> Consuler</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$7.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye  me-2 text-primary"></i> Consuler</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Vesitable Shop End -->
-
-        <!-- Vesitable Shop Start-->
-        <div class="container-fluid vesitable py-5">
-            <div class="container py-5">
-                <h1 class="mb-0">Fresh Organic Vegetables</h1>
-                <div class="owl-carousel vegetable-carousel justify-content-center">
-                <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('assetsH/img/vegetable-item-6.jpg')}}" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">Vegetable</div>
-                        <div class="p-4 rounded-bottom">
-                            <h4>Parsely</h4>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-eye  me-2 text-primary"></i> Consuler</a>
-                            </div>
-                        </div>
-                    </div>
-                    @foreach($articles as $art)
-                    
-                    <div class="border border-primary rounded position-relative vesitable-item">
-                        <div class="vesitable-img">
-                            <img src="{{asset('storage/'.$art->image)}}" class="img-fluid w-100 rounded-top" alt="{{$art->title}}">
-                        </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
-                            @foreach($categories as $cat)
-                            @if($art->category_id == $cat->id)
-                                {{$cat->name}}
-                            @endif
-                            @endforeach
-                        </div>
-                        <div class="p-4 rounded-bottom">
-                            <h5>{!!Str::limit($art->title, 17)!!}</h5>
-                            <p>{{$art->stock}} en stock</p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <p class="text-dark fs-5 fw-bold mt-0">{{$art->price}} FCFA</p>
-                                <a href="{{route('article.view', $art->slug)}}" class="btn border border-secondary rounded-pill px-3 text-primary">
-                                    <i class="fa fa-eye  me-2 text-primary"></i> Consuler
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                  
-                    @endforeach
-                </div>
-
-            </div>
-        </div>
-        <!-- Vesitable Shop End -->
+        <!-- Selection par categorie End-->
 
         <!-- Footer Start -->
          @include('layouts.footer')

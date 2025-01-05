@@ -3,7 +3,7 @@
     use Illuminate\Support\Facades\Auth;
 
     $dateCreation = Auth::user()->created_at; // Date de création de l'utilisateur
-    $dateRestant = $dateCreation->addDays(15); // Ajouter 15 jours
+    $dateRestant = $dateCreation->addDays(5); // Ajouter 15 jours
     // $dateRestant = $dateActuelle->diffInDays($dateCreation);
 ?>
        <!-- partie navbar  -->

@@ -44,9 +44,10 @@
                             <div class="card">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Paiement de l'abonnement <b>UAS-BC</b></h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                               
+                                <p class="card-text">Vous allez etre redirigé(e) vers notre partenaire de paiement sécurisé en ligne <b>Paytech.sn</b></p>
                                 <a href="{{route('paiement')}}" class="btn btn-primary">Payer</a>
-                                <a href="#" class="btn btn-danger">Annuler</a>
+                                <a href="/cancel" class="btn btn-danger">Annuler</a>
                             </div>
                             </div>
                         </div>
