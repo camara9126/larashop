@@ -104,6 +104,18 @@ Route::get('/view/{articles}', function ($slug) {
 Route::patch('/article/{articles}/activate', [ArticleController::class, 'activate'])->name('articles.activate')->middleware(['auth', 'verified']);
 Route::patch('/article/{articles}/desactivate', [ArticleController::class, 'desactivate'])->name('articles.desactivate')->middleware(['auth', 'verified']);
 
+// paiement article
+Route::patch('/article/{art}/makePayment', [ArticleController::class, 'makePayment'])->name('paiement')->middleware(['auth', 'verified']);
+Route::get('/success', function () {
+
+    // $user= User::where('id', Auth::user()->id)->first();
+    // $user->update(['paiement' => 1]);
+    $article= articles::where('reponse',1)->first();
+    $article->update(['reponse'=> 0]);
+        // dd($article);
+    return view('dashboard.paiements.success');
+    // return 'Paiement réussi !';
+});
 
 // Modifier le mot de passe 
 Route::get('/password', function () {
@@ -132,15 +144,6 @@ Route::get('/abonnement', function () {
     return view('dashboard.abonnement');
 })->middleware(['auth', 'verified'])->name('abonne');
 
-Route::get('/paiement', [PaymentController::class, 'makePayment'])->middleware(['auth', 'verified'])->name('paiement');
-Route::get('/success', function () {
-
-    $user= User::where('id', Auth::user()->id)->first();
-    $user->update(['paiement' => 1]);
-        // dd($user);
-    return view('dashboard.paiements.success');
-    // return 'Paiement réussi !';
-});
 Route::get('/cancel', function () {
     
     return view('dashboard.paiements.cancel');
