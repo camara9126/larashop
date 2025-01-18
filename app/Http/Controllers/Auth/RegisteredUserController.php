@@ -52,7 +52,6 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'matricule' => $request->matricule,
             'password' => Hash::make($request->password),
-            'periode_essai' => Carbon::now()->addDays(15),
         ]);
 
         event(new Registered($user));

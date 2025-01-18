@@ -25,7 +25,9 @@ class ArticleController extends Controller
             $articlesA = Articles::orderBy('created_at', 'DESC')->get();
             return view('admin.articles.index',compact('articlesA', 'categories'));
         } else {
-            $articlesC = Articles::where(['user_id'=>Auth::user()->id])->get();
+            $articlesC = Articles::where(['user_id'=>Auth::user()->id, ])
+                                    ->orderBy('created_at', 'desc')->get();
+
             return view('articles.index',compact('articlesC', 'categories'));
         }
             
@@ -152,6 +154,40 @@ class ArticleController extends Controller
         return redirect()->route('article.index', compact('articles'))->with('success', 'Article modifié avec success.'); 
     }
 
+    public function makePayment(PayTech $paytech, articles $art)
+    {
+        // Crée une instance de PayTech avec les clés de l'API
+        $response = new \App\Services\PayTech(env('PAYTECH_API_KEY'), env('PAYTECH_API_SECRET'));
+
+        // Création du ref_command avec la date et le matricule du client
+        $ref_command = Carbon::now()->format('YmdHis') . '-' . Auth::user()->matricule;
+
+        // Récupération du prix de l'article
+        
+        $price = ceil($art->price*0.1); // Accède directement au prix
+        dd($price); // Vérifie que le prix est correctement récupéré
+
+        // Configuration pour PayTech
+        $response = $paytech->setQuery([
+            'item_name' => 'Paiement chez UAS-BC',
+            'item_price' => $price,
+            'command_name' => ': Paiement article ' . Carbon::now()->format('YmdHis') . ' : ' . Auth::user()->prename . '-' . Auth::user()->name . ' chez UAS-BC',
+        ])
+        ->setRefCommand($ref_command) // Ajoute la référence
+        ->setNotificationUrl([        
+            'success_url' => url('/success'),
+            'cancel_url' => url('/cancel'),
+            'ipn_url' => url('https://uasbc.net/ipn'),
+        ])
+        ->send();
+
+        if ($response['success'] === 1) {
+            return redirect($response['redirect_url']); // Redirige vers PayTech pour le paiement
+        }
+
+        return response()->json($response); // Montre l'erreur du transfert
+    }
+
     /**
      * Remove the specified resource from storage.
      */
@@ -183,39 +219,6 @@ class ArticleController extends Controller
         $articles->update(['reponse' => 1]);
         // dd($articles);
         return redirect()->back()->with('success', 'Article rejeté avec succès.');
-    }
-
-    public function makePayment(PayTech $paytech, articles $art)
-    {
-        // Crée une instance de PayTech avec les clés de l'API
-        $response = new \App\Services\PayTech(env('PAYTECH_API_KEY'), env('PAYTECH_API_SECRET'));
-
-        // Création du ref_command avec la date et le matricule du client
-        $ref_command = Carbon::now()->format('YmdHis') . '-' . Auth::user()->matricule;
-
-        // Récupération du prix de l'article
-        $price = $art->price*(10/100); // Accède directement au prix
-        // dd($price); // Vérifie que le prix est correctement récupéré
-
-        // Configuration pour PayTech
-        $response = $paytech->setQuery([
-            'item_name' => 'Paiement chez UAS-BC',
-            'item_price' => $price,
-            'command_name' => ': Paiement article ' . Carbon::now()->format('YmdHis') . ' : ' . Auth::user()->prename . '-' . Auth::user()->name . ' chez UAS-BC',
-        ])
-        ->setRefCommand($ref_command) // Ajoute la référence
-        ->setNotificationUrl([        
-            'success_url' => url('/success'),
-            'cancel_url' => url('/cancel'),
-            'ipn_url' => url('https://uasbc.net/ipn'),
-        ])
-        ->send();
-
-        if ($response['success'] === 1) {
-            return redirect($response['redirect_url']); // Redirige vers PayTech pour le paiement
-        }
-
-        return response()->json($response); // Montre l'erreur du transfert
     }
 
 
