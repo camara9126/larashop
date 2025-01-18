@@ -33,11 +33,11 @@
             </x-slot>
             
             <div class="py-12">
+                <p class="text-black">Veuillez payer la Commission <b>(10%)</b> pour que vos articles soient bien publiés</p>
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                     <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                         <div class="row">
                             <div class="col-md-12">
-                                <!-- <b>Veuillez finaliser votre Abonnement pour publier des articles</b> -->
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
@@ -60,11 +60,11 @@
                                                         <form action="{{ route('paiement', $art->id) }}" method="POST">
                                                             @csrf
                                                             @method('PATCH')
-                                                            <button type="submit" class="btn btn-danger" title="impayé"><i class="fa fa-times" aria-hidden="true"></i></button>
+                                                            <button type="submit" class="btn btn-danger" title="payer"><i class="fa fa-times" aria-hidden="true"></i> impayé</button>
                                                         </form>
                                                     @else
                                                         <form action="" method="">                                                            
-                                                            <button type="" class="btn btn-success" title="payé"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                            <button type="" class="btn btn-success" title=""><i class="fa fa-check" aria-hidden="true"></i> payé</button>
                                                         </form>
                                                     @endif
                                                 </th>

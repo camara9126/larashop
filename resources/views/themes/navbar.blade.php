@@ -70,17 +70,18 @@
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"
                         aria-expanded="false">
-                        <div class="nav-profile-img">
+                        <span class="availability-status online bg-light text-white w-100" style="border-radius:100%;">
+                            {{ Auth::user()->prename[0].Auth::user()->name[0] }} 
+                        </span>
+                        <!-- <div class="nav-profile-img w-100">
                             <img src="{{asset('assetsH/img/avatar.jpg')}}" alt="image">
-                        </div>                        
-                        <!-- <div class="nav-profile-text">
-                           {{ Auth::user()->name }}
-                        </div>  -->
+                        </div>-->                        
                     </a>
                     <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm"
                         aria-labelledby="profileDropdown" data-x-placement="bottom-end">
-                        <div class="p-3 text-center bg-primary">
-                            <span class="bg-white d-center" style="width: auto; border-radius: 100%"><b>{{Auth::user()->prename[0].Auth::user()->name[0]}}</b></span>
+                        <div class="p-3 bg-primary">
+                            <img src="{{asset('assetsH/img/avatar.jpg')}}" style="border-radius: 100%;" alt="profil">
+                            <!-- <span class="bg-white d-center" style="width: auto; border-radius: 100%"><b>{{Auth::user()->prename[0].Auth::user()->name[0]}}</b></span> -->
                         </div>
                         <div class="p-2">
                             <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"

@@ -5,14 +5,14 @@
         <!-- Prenom -->
         <div>
             <x-input-label for="prename" :value="__('Prenom')" />
-            <x-text-input id="prename" class="block mt-1 w-full" type="text" name="prename" :value="old('prename')" required autofocus autocomplete="prename" placeholder="Votre prénom" />
+            <x-text-input id="prename" class="block mt-1 w-full" type="text" name="prename" :value="old('prename')" required autofocus autocomplete="prename" placeholder="Prénom" />
             <x-input-error :messages="$errors->get('prename')" class="mt-2" />
         </div>
 
         <!-- Nom -->
         <div>
             <x-input-label for="name" :value="__('Nom')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="nom" placeholder="Votre Nom" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="nom" placeholder="Nom" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
@@ -33,7 +33,7 @@
         <!-- matricule -->
         <div class="mt-4">
             <x-input-label for="matricule" :value="__('Matricule')" />
-            <x-text-input id="matricule" class="block mt-1 w-full" type="text" name="matricule" :value="old('matricule')" required placeholder="Votre matricule" />
+            <x-text-input id="matricule" class="block mt-1 w-full" type="text" name="matricule" :value="old('matricule')" required placeholder="Matricule" />
             <x-input-error :messages="$errors->get('matricule')" class="mt-2" />
         </div>
 
@@ -44,7 +44,8 @@
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
-                            required autocomplete="new-password" />
+                            required autocomplete="new-password"
+                            placeholder="Min 9 caractétes" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
@@ -62,7 +63,7 @@
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+                {{ __('Déja inscrit ?') }}
             </a>
 
             <x-primary-button class="ms-4">

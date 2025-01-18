@@ -46,7 +46,7 @@
                                 <h5 class="card-title">Paiement de l'abonnement <b>UAS-BC</b></h5>
                                
                                 <p class="card-text">Vous allez etre redirigé(e) vers notre partenaire de paiement sécurisé en ligne <b>Paytech.sn</b></p>
-                                <a href="{{route('paiement')}}" class="btn btn-primary">Payer</a>
+                                <a href="{{route('paiement,  $art->id')}}" class="btn btn-primary">Payer</a>
                                 <a href="/cancel" class="btn btn-danger">Annuler</a>
                             </div>
                             </div>

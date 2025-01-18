@@ -20,15 +20,15 @@
             
             @if ($dateRestant->isPast())
             @if(Auth::user()->paiement == 0)
-            <hr><br>
+            <!-- <hr><br>
                 <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">
                     NB :</i> </b>Votre période d'essai a expiré. <a href="{{ route('abonne') }}">Abonnez-vous maintenant</a>.
-                </h3>
+                </h3> -->
             @endif
             @else
-                <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">
+                <!-- <h3 class="font-semibold text-xl text-gray-600 leading-tight mb-2"><b><i class="text-danger">
                     NB :</i> </b>Votre période d'essai gratuit expire le {{ $dateRestant }} .
-                </h3>
+                </h3> -->
             @endif
 
             <hr>
